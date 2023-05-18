@@ -31,5 +31,6 @@ module.exports = {
     'react-refresh/only-export-components': 'warn',
 	  "react/jsx-first-prop-new-line": 2,
 	  "react/jsx-closing-bracket-location": 2,
+	  "react/react-in-jsx-scope": "off",
   },
 }
