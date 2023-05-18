@@ -2,6 +2,7 @@ import { GlobalStyle } from "./GlobalStyle";
 import { Normalize } from "styled-normalize";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../theme";
+import Header from "../../common/Header/Header";
 
 const App = () => {
 
@@ -9,6 +10,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
 	    <Normalize/>
       <GlobalStyle />
+	    <Header/>
     </ThemeProvider>
   );
 }
