@@ -2,6 +2,8 @@ import styled from "styled-components";
 import logo from "./logo.svg";
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: row;
   width: 100%;
   height: 94px;
   margin: 0;
@@ -11,9 +13,10 @@ export const Container = styled.div`
 export const Logo = styled.img`
   height: 48px;
   width: 220px;
-	margin: 23px 80px 23px 293px;
+  margin: 23px 80px 23px 293px;
 `;
 
 Logo.defaultProps = {
-	src: logo,
+  src: logo,
+  alt: "logo",
 };
