@@ -1,11 +1,24 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import logo from "./logo.svg";
 
 export const Nav = styled.nav`
   display: flex;
   flex-direction: row;
   align-items: center;
+	gap: 80px;
 `;
+
+export const Logo = styled.img`
+  height: 48px;
+  width: 220px;
+`;
+
+Logo.defaultProps = {
+	src: logo,
+	alt: "logo",
+};
+
 
 export const List = styled.ul`
   display: flex;
