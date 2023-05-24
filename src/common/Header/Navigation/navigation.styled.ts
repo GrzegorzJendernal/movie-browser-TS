@@ -6,7 +6,7 @@ export const Nav = styled.nav`
   display: flex;
   flex-direction: row;
   align-items: center;
-	gap: 80px;
+  gap: 80px;
 `;
 
 export const Logo = styled.img`
@@ -15,10 +15,9 @@ export const Logo = styled.img`
 `;
 
 Logo.defaultProps = {
-	src: logo,
-	alt: "logo",
+  src: logo,
+  alt: "logo",
 };
-
 
 export const List = styled.ul`
   display: flex;
