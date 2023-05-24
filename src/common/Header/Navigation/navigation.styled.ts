@@ -7,11 +7,38 @@ export const Nav = styled.nav`
   flex-direction: row;
   align-items: center;
   gap: 80px;
+	
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}) {
+    gap: 60px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+    gap: 40px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    gap: 20px;
+  }
 `;
 
 export const Logo = styled.img`
   height: 48px;
   width: 220px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+	  width: 180px;
+	  height: auto;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    width: 150px;
+    height: auto;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallest}) {
+    width: 120px;
+    height: auto;
+  }
 `;
 
 Logo.defaultProps = {
