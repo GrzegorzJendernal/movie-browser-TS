@@ -1,16 +1,18 @@
 import { createHashRouter } from "react-router-dom";
-import Header from "../../common/Header/Header";
+import Tile from "../common/Tile/Tile";
+import App from "./App/App";
 
 export const router = createHashRouter([
   {
     path: "/",
-    element: <Header />,
+    element: <App />,
+	  errorElement: <div>error</div>,
     children: [
 	    {errorElement: <div>error</div>,
 	    children: [
 		    {
 			    path: "/movies",
-			    element: <div>filmy</div>,
+			    element: <Tile/>,
 		    },
 		    {
 			    path: "/people",
