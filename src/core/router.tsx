@@ -1,4 +1,4 @@
-import { createHashRouter } from "react-router-dom";
+import { createHashRouter, Navigate } from "react-router-dom";
 import Tile from "../common/Tile/Tile";
 import App from "./App/App";
 
@@ -10,6 +10,10 @@ export const router = createHashRouter([
     children: [
 	    {errorElement: <div>error</div>,
 	    children: [
+		    {
+					index: true,
+			    element: <Navigate to={"/movies"} replace={true}/>
+		    },
 		    {
 			    path: "/movies",
 			    element: <Tile/>,
