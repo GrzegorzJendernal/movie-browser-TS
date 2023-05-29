@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import loupe from "./loupe.svg";
+import {ReactComponent as loupe} from "./loupe.svg";
 
 export const Label = styled.label`
   display: flex;
@@ -20,13 +20,8 @@ export const Input = styled.input`
   margin: 10px;
 `;
 
-export const Loupe = styled.img`
+export const Loupe = styled(loupe)`
   width: 24px;
   height: auto;
   margin: 12px 16px 12px 24px;
 `;
-
-Loupe.defaultProps = {
-  src: loupe,
-  alt: "loupe",
-};
