@@ -1,6 +1,7 @@
 import { createHashRouter, Navigate } from "react-router-dom";
-import Tile from "../common/Tile/Tile";
 import App from "./App/App";
+import Page from "../common/Page/Page";
+import Tile from "../common/Tile/Tile";
 
 export const router = createHashRouter([
   {
@@ -16,7 +17,10 @@ export const router = createHashRouter([
 		    },
 		    {
 			    path: "/movies",
-			    element: <Tile/>,
+			    element: <Page
+			    title={"Popular movies"}
+			    content={<Tile/>}
+			             />,
 		    },
 		    {
 			    path: "/people",
