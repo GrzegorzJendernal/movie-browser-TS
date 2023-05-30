@@ -19,6 +19,10 @@ export const Nav = styled.nav`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     gap: 20px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    gap: 10px;
+  }
 `;
 
 export const Logo = styled(logo)`
@@ -45,6 +49,18 @@ export const List = styled.ul`
   display: flex;
   justify-content: center;
   gap: 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    gap: 14px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    gap: 12px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallest}) {
+    gap: 10px;
+  }
 `;
 
 export const Item = styled.li`
@@ -59,6 +75,11 @@ export const StyledNavLink = styled(NavLink)`
   line-height: 1.5;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.base};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 12px;
+	  padding: 8px 12px;
+  }
 
   &.active {
     border: 1px solid ${({ theme }) => theme.colors.base};
