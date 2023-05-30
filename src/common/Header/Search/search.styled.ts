@@ -9,6 +9,11 @@ export const Label = styled.label`
   background-color: ${({ theme }) => theme.colors.base};
   border: 1px solid ${({ theme }) => theme.colors.disabled};
   border-radius: 33px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    width: 100%;
+	  margin: auto 16px;
+  }
 `;
 
 export const Input = styled.input`
