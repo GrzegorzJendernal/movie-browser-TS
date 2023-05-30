@@ -49,6 +49,7 @@ export const List = styled.ul`
   display: flex;
   justify-content: center;
   gap: 16px;
+	padding: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     gap: 14px;
