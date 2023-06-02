@@ -16,7 +16,7 @@ export const StyledTile = styled.section`
   padding: 16px;
 `;
 
-export const Poster = styled.div<PosterBackgroundProps>`
+export const Picture = styled.div<PosterBackgroundProps>`
   padding-top: calc(100% * 632/421);
   margin-bottom: 16px;
   border-radius: 5px;

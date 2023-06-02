@@ -5,7 +5,7 @@ import {
   Tag,
   Note,
   Rates,
-  Poster,
+  Picture,
   StyledStar,
   StyledTile,
   Title,
@@ -23,7 +23,7 @@ interface TileProps {
 const Tile = ({ title, date, genres, note, votes, imageUrl }: TileProps) => {
   return (
     <StyledTile>
-      <Poster imageUrl={imageUrl} />
+      <Picture imageUrl={imageUrl} />
       <Info>
         <Title>{title}</Title>
         <Date>{date}</Date>
