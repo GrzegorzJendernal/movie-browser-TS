@@ -17,12 +17,12 @@ const Tile = ({title, date, genres, note, votes}: TileProps) => {
         <Tags>
 	        {!!genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}
         </Tags>
-        <Rates>
-          <StyledStar />
-          <Note>{note}</Note>
-          <Votes>{votes} votes</Votes>
-        </Rates>
       </Info>
+	    <Rates>
+		    <StyledStar />
+		    <Note>{note}</Note>
+		    <Votes>{votes} votes</Votes>
+	    </Rates>
     </StyledTile>
   );
 };

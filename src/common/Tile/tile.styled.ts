@@ -13,8 +13,7 @@ export const StyledTile = styled.section`
 `;
 
 export const Poster = styled.div`
-  width: 292px;
-  height: 434px;
+  padding-top: calc(100% * 632/421);
   margin-bottom: 16px;
   border-radius: 5px;
   background-image: url(${noPoster});
@@ -26,7 +25,6 @@ export const Info = styled.article`
   display: grid;
 	grid-gap: 8px;
 	grid-template-columns: 1fr;
-	align-content: stretch;
 `;
 
 export const Title = styled.h2`
@@ -46,7 +44,9 @@ export const Date = styled.span`
 	margin: 0;
 `;
 
-export const Tags = styled.div`
+export const Tags = styled.ul`
+	list-style: none;
+	padding: 0;
   display: flex;
   flex-direction: row;
   gap: 8px;
@@ -54,7 +54,7 @@ export const Tags = styled.div`
   flex-wrap: wrap;
 `;
 
-export const Tag = styled.div`
+export const Tag = styled.li`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -71,7 +71,6 @@ export const Rates = styled.div`
   display: flex;
   gap: 12px;
 	margin-top: auto;
-	align-items: center;
 `;
 
 export const StyledStar = styled(Star)`
