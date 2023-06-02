@@ -1,5 +1,6 @@
 import Tile from "../../../common/Tile/Tile";
 import { Container } from "./movieList.styled";
+import poster from "../../../assets/poster.png";
 
 const MovieList = () => {
 	return (
@@ -10,6 +11,7 @@ const MovieList = () => {
 			genres={["Action", "Thriller", "Horror"]}
 			note={7.5}
 			votes={38}
+			imageUrl={poster}
 			/>
 			<Tile
 				title={"Abrakadabra"}
@@ -23,6 +25,7 @@ const MovieList = () => {
 				genres={["Action", "Thriller", "Horror", "kjshjcsdj", "Action", "Thriller", "Horror", "kjshjcsdj"]}
 				note={99}
 				votes={125548896}
+				imageUrl={poster}
 			/>
 			<Tile
 				title={"Tytuł filmu"}
@@ -37,6 +40,15 @@ const MovieList = () => {
 				genres={["Action", "Thriller", "Horror"]}
 				note={7.5}
 				votes={38}
+				imageUrl={poster}
+			/>
+			<Tile
+				title={"Tytuł filmu"}
+				date={2020}
+				genres={["Action", "Thriller", "Horror"]}
+				note={7.5}
+				votes={38}
+				imageUrl={poster}
 			/>
 			<Tile
 				title={"Tytuł filmu"}
@@ -51,13 +63,7 @@ const MovieList = () => {
 				genres={["Action", "Thriller", "Horror"]}
 				note={7.5}
 				votes={38}
-			/>
-			<Tile
-				title={"Tytuł filmu"}
-				date={2020}
-				genres={["Action", "Thriller", "Horror"]}
-				note={7.5}
-				votes={38}
+				imageUrl={poster}
 			/>
 		</Container>
 	);

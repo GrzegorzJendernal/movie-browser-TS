@@ -2,6 +2,10 @@ import styled from "styled-components";
 import noPoster from "./noMoviePoster.svg";
 import { ReactComponent as Star } from "./star.svg";
 
+interface PosterBackgroundProps {
+	imageUrl?: string;
+}
+
 export const StyledTile = styled.section`
  display: flex;
 	flex-direction: column;
@@ -12,11 +16,11 @@ export const StyledTile = styled.section`
   padding: 16px;
 `;
 
-export const Poster = styled.div`
+export const Poster = styled.div<PosterBackgroundProps>`
   padding-top: calc(100% * 632/421);
   margin-bottom: 16px;
   border-radius: 5px;
-  background-image: url(${noPoster});
+  background-image: ${({ imageUrl }) => (imageUrl ? `url(${imageUrl})` : `url(${noPoster})`)};
   background-repeat: no-repeat;
   background-size: 100%;
 `;
