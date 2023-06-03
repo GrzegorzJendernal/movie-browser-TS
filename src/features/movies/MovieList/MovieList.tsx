@@ -1,9 +1,12 @@
 import Tile from "../../../common/Tile/Tile";
 import { Container } from "./movieList.styled";
 import poster from "../../../assets/poster.png";
+import { PageHeading, PageWrapper } from "../../../common/page/page.styled";
 
 const MovieList = () => {
 	return (
+		<PageWrapper>
+			<PageHeading>Popular movies</PageHeading>
 		<Container>
 			<Tile
 			title={"Tytuł filmu"}
@@ -66,6 +69,7 @@ const MovieList = () => {
 				imageUrl={poster}
 			/>
 		</Container>
+		</PageWrapper>
 	);
 };
 
