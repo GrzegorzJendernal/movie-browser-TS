@@ -3,15 +3,17 @@ import styled from "styled-components";
 export const Container = styled.div`
   max-width: 1368px;
   margin: 56px auto;
+	padding: 0 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     margin: 48px;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
 		margin: 36px;
+	  padding: 0 16px;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
-		margin: 24px  ;
+		margin: 24px;
   }
 `;
 
