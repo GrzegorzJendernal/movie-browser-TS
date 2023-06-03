@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.29.12",
+    "@tanstack/react-query-devtools": "^4.29.12",
     "@types/styled-components": "^5.1.26",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
