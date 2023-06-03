@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const PageWrapper = styled.div`
   max-width: 1368px;
   margin: 56px auto;
 	padding: 0 24px;
@@ -17,7 +17,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Heading = styled.h1`
+export const PageHeading = styled.h1`
   margin: 0;
   font-size: 36px;
   font-weight: 600;
