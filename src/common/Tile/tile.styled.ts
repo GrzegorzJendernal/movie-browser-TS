@@ -132,15 +132,17 @@ export const Tag = styled.li`
 export const Rates = styled.div`
   display: flex;
   gap: 12px;
-	grid-area: rates;
   font-size: 16px;
   line-height: 1.5;
+	margin-top: auto;
+  align-items: center;
+  align-self: flex-start;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-	  align-items: center;
-	  align-self: flex-start;
+	 margin-top: unset;
 	  font-size: 15px;
 	  gap: 8px;
+    grid-area: rates;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
