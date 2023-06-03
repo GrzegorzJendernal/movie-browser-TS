@@ -1,5 +1,5 @@
 import {
-  Date,
+  Additional,
   Info,
   Tags,
   Tag,
@@ -26,7 +26,7 @@ const Tile = ({ title, date, genres, note, votes, imageUrl }: TileProps) => {
       <Picture imageUrl={imageUrl} />
       <Info>
         <Title>{title}</Title>
-        <Date>{date}</Date>
+        <Additional>{date}</Additional>
         <Tags>{!!genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}</Tags>
       </Info>
       <Rates>
