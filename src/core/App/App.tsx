@@ -10,8 +10,8 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Normalize />
       <GlobalStyle />
-      <Header/>
-	    <Outlet/>
+      <Header />
+      <Outlet />
     </ThemeProvider>
   );
 };

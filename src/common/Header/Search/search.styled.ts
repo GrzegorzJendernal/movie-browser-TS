@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {ReactComponent as loupe} from "./loupe.svg";
+import { ReactComponent as loupe } from "./loupe.svg";
 
 export const Label = styled.label`
   display: flex;
@@ -12,7 +12,7 @@ export const Label = styled.label`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
     width: 100%;
-	  margin: auto 16px;
+    margin: auto 16px;
   }
 `;
 

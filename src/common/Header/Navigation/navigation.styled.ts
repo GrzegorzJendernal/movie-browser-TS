@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import {ReactComponent as logo } from "./logo.svg";
+import { ReactComponent as logo } from "./logo.svg";
 
 export const Nav = styled.nav`
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 80px;
-	
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}) {
     gap: 60px;
   }
@@ -30,8 +30,8 @@ export const Logo = styled(logo)`
   width: 220px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-	  width: 180px;
-	  height: auto;
+    width: 180px;
+    height: auto;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
@@ -49,7 +49,7 @@ export const List = styled.ul`
   display: flex;
   justify-content: center;
   gap: 16px;
-	padding: 0;
+  padding: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     gap: 14px;
@@ -79,7 +79,7 @@ export const StyledNavLink = styled(NavLink)`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 12px;
-	  padding: 8px 12px;
+    padding: 8px 12px;
   }
 
   &.active {

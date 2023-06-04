@@ -29,14 +29,14 @@ export const SpinnerBox = styled.div`
   display: grid;
   align-items: center;
   justify-content: center;
-	margin-top: 120px;
+  margin-top: 120px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     margin-top: 90px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-   margin-top: 60px;
+    margin-top: 60px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {

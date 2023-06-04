@@ -1,16 +1,4 @@
-import {
-  Additional,
-  Info,
-  Tags,
-  Tag,
-  Note,
-  Rates,
-  Picture,
-  StyledStar,
-  StyledTile,
-  Title,
-  Votes,
-} from "./tile.styled";
+import { Additional, Info, Tags, Tag, Note, Rates, Picture, StyledStar, StyledTile, Title, Votes } from "./tile.styled";
 
 interface TileProps {
   title: string;

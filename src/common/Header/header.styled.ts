@@ -12,7 +12,7 @@ export const Container = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     flex-direction: column;
-	  gap: 24px;
-	  padding: 16px;
+    gap: 24px;
+    padding: 16px;
   }
 `;

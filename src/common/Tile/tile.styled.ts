@@ -17,13 +17,12 @@ export const StyledTile = styled.section`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     display: grid;
-	  grid-template-areas: 
-  	"picture info"
-	  "picture rates"
-  ;
-	  grid-template-columns: 1fr 1.5fr;
-	  grid-template-rows: auto 1fr;
-	  grid-gap: 16px;
+    grid-template-areas:
+      "picture info"
+      "picture rates";
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: auto 1fr;
+    grid-gap: 16px;
   }
 `;
 
@@ -34,7 +33,7 @@ export const Picture = styled.div<PictureProps>`
   background-image: ${({ imageUrl }) => (imageUrl ? `url(${imageUrl})` : `url(${noPoster})`)};
   background-repeat: no-repeat;
   background-size: 100%;
-	grid-area: picture;
+  grid-area: picture;
 `;
 
 export const Info = styled.article`
@@ -44,9 +43,9 @@ export const Info = styled.article`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     display: flex;
-	  flex-direction: column;
-	  gap: 8px;
-	  grid-area: info;
+    flex-direction: column;
+    gap: 8px;
+    grid-area: info;
   }
 `;
 
@@ -115,17 +114,17 @@ export const Tag = styled.li`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 13px;
-	  padding: 6px 12px;
+    padding: 6px 12px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
     font-size: 12px;
-	  padding: 5px 10px;
+    padding: 5px 10px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallest}) {
     font-size: 10px;
-	  padding: 4px 8px;
+    padding: 4px 8px;
   }
 `;
 
@@ -134,14 +133,14 @@ export const Rates = styled.div`
   gap: 12px;
   font-size: 16px;
   line-height: 1.5;
-	margin-top: auto;
+  margin-top: auto;
   align-items: center;
   align-self: flex-start;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-	 margin-top: unset;
-	  font-size: 15px;
-	  gap: 8px;
+    margin-top: unset;
+    font-size: 15px;
+    gap: 8px;
     grid-area: rates;
   }
 
