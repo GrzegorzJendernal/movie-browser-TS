@@ -40,14 +40,14 @@ export const Info = styled.article`
   display: grid;
   grid-gap: 8px;
   grid-template-columns: 1fr;
-	margin-bottom: 8px;
+  margin-bottom: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     display: flex;
     flex-direction: column;
     gap: 8px;
     grid-area: info;
-	  margin-bottom: unset;
+    margin-bottom: unset;
   }
 `;
 

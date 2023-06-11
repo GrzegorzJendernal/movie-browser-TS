@@ -7,7 +7,7 @@ export const PageWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     margin: 48px;
-	  padding: unset;
+    padding: unset;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     margin: 36px;
