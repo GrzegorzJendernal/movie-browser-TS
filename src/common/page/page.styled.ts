@@ -7,13 +7,13 @@ export const PageWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     margin: 48px;
+	  padding: unset;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     margin: 36px;
-    padding: 0 16px;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
-    margin: 24px;
+    margin: 14px;
   }
 `;
 
@@ -21,7 +21,7 @@ export const PageHeading = styled.h1`
   margin: 0;
   font-size: 36px;
   font-weight: 600;
-  line-height: 120%;
+  line-height: 1.2;
   color: ${({ theme }) => theme.colors.primary};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
