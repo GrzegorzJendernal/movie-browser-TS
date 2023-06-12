@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const PageWrapper = styled.div`
   max-width: 1368px;
-  margin: 56px auto;
+  margin: 56px auto 0;
   padding: 0 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
