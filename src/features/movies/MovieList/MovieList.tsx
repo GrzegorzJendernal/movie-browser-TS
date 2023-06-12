@@ -2,6 +2,7 @@ import Tile from "../../../common/Tile/Tile";
 import { Container } from "./movieList.styled";
 import poster from "../../../assets/poster.png";
 import { PageHeading, PageWrapper } from "../../../common/page/page.styled";
+import Pagination from "../../../common/Pagination/Pagination";
 
 const MovieList = () => {
   return (
@@ -52,6 +53,7 @@ const MovieList = () => {
           imageUrl={poster}
         />
       </Container>
+	    <Pagination/>
     </PageWrapper>
   );
 };
