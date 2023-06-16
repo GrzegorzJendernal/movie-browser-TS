@@ -1,15 +1,29 @@
-import { Arrow, Button, ButtonsBox, Wrapper } from "./pagination.styled";
+import { Arrow, Button, ButtonsBox, Text, Wrapper } from "./pagination.styled";
 
 const Pagination = () => (
   <Wrapper>
     <ButtonsBox>
-      <Button><Arrow rotate/>first</Button>
-      <Button><Arrow/>previous</Button>
+      <Button>
+        <Arrow rotate={"true"} />
+	      <Arrow rotate={"true"} showOnMobile={"true"}/>
+        <Text>first</Text>
+      </Button>
+      <Button>
+        <Arrow rotate={"true"} />
+        <Text>previous</Text>
+      </Button>
     </ButtonsBox>
-	  <span>Page 1 of 500</span>
+    <span>Page 1 of 500</span>
     <ButtonsBox>
-      <Button>next<Arrow/></Button>
-      <Button>last<Arrow/></Button>
+      <Button>
+        <Arrow />
+        <Text>next</Text>
+      </Button>
+      <Button>
+        <Arrow />
+	      <Arrow showOnMobile={"true"}/>
+        <Text>last</Text>
+      </Button>
     </ButtonsBox>
   </Wrapper>
 );
