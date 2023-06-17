@@ -4,12 +4,12 @@ const Pagination = () => (
   <Wrapper>
     <ButtonsBox>
       <Button>
-        <Arrow rotate={"true"} />
-	      <Arrow rotate={"true"} showOnMobile={"true"}/>
+        <Arrow rotate />
+        <Arrow rotate mobile />
         <Text>first</Text>
       </Button>
       <Button>
-        <Arrow rotate={"true"} />
+        <Arrow rotate />
         <Text>previous</Text>
       </Button>
     </ButtonsBox>
@@ -21,7 +21,7 @@ const Pagination = () => (
       </Button>
       <Button>
         <Arrow />
-	      <Arrow showOnMobile={"true"}/>
+        <Arrow mobile />
         <Text>last</Text>
       </Button>
     </ButtonsBox>

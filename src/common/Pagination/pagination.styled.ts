@@ -8,6 +8,11 @@ export const Wrapper = styled.div`
   justify-content: center;
   gap: 24px;
   margin: 40px auto 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    gap:8px;
+    margin: 32px auto 0;
+  }
 `;
 
 export const ButtonsBox = styled.div`
@@ -15,6 +20,10 @@ export const ButtonsBox = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 12px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    gap:8px;
+  }
 `;
 export const Button = styled.button`
   display: flex;
@@ -26,13 +35,27 @@ export const Button = styled.button`
   border-radius: 5px;
   background-color: ${({ theme }) => theme.colors.button};
   text-transform: capitalize;
+	cursor: pointer;
+	
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    gap: 4px;
+	  padding: 8px 12px;
+  }
 	
 	&:disabled {
     background-color: ${({ theme }) => theme.colors.disabled};
+		cursor: auto;
 	}
 `;
 
-export const Arrow = styled(Vector)<{ rotate?: "true"; showOnMobile?: "true" }>`
+interface ArrowProps {
+	rotate?: boolean;
+	mobile?: boolean;
+}
+export const Arrow = styled(Vector).attrs(({rotate, mobile}: ArrowProps) => ({
+	rotate: rotate ? "true" : undefined,
+	mobile: mobile ? "true" : undefined,
+}))<ArrowProps>`
   width: 7px;
   color: ${({ theme }) => theme.colors.special};
   ${({ rotate }) =>
@@ -40,8 +63,8 @@ export const Arrow = styled(Vector)<{ rotate?: "true"; showOnMobile?: "true" }>`
     css`
       transform: rotate(180deg);
     `};
-  ${({ showOnMobile }) =>
-    !!showOnMobile &&
+  ${({ mobile }) =>
+    !!mobile &&
     css`
       display: none;
       @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
