@@ -14,6 +14,5 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         font-family: 'Poppins', sans-serif;
       	background-color: ${({ theme }) => theme.colors.background};
-	    	white-space: pre-wrap;
     }
 `;
