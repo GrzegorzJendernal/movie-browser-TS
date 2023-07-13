@@ -4,6 +4,7 @@ export const PageWrapper = styled.div`
   max-width: 1368px;
   margin: 56px auto 0;
   padding: 0 24px;
+  white-space: pre-wrap;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     margin: 48px;
