@@ -1,28 +1,31 @@
 import { createHashRouter, Navigate } from "react-router-dom";
 import App from "./App/App";
 import MovieList from "../features/movies/MovieList/MovieList";
+import ErrorPage from "../common/ErrorPage/ErrorPage";
 
 export const router = createHashRouter([
   {
     path: "/",
     element: <App />,
-	  errorElement: <div>error</div>,
+    errorElement: <Navigate to={"/movies"} replace={true} />,
     children: [
-	    {errorElement: <div>error</div>,
-	    children: [
-		    {
-					index: true,
-			    element: <Navigate to={"/movies"} replace={true}/>
-		    },
-		    {
-			    path: "/movies",
-			    element: <MovieList/>
-		    },
-		    {
-			    path: "/people",
-			    element: <div>ludzie</div>,
-		    },
-	    ]},
+      {
+        errorElement: <ErrorPage />,
+        children: [
+          {
+            index: true,
+            element: <Navigate to={"/movies"} replace={true} />,
+          },
+          {
+            path: "/movies",
+            element: <MovieList />,
+          },
+          {
+            path: "/people",
+            element: <ErrorPage />,
+          },
+        ],
+      },
     ],
   },
 ]);
