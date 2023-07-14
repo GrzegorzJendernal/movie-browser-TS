@@ -3,15 +3,16 @@ import { Container } from "./movieList.styled";
 import { PageHeading, PageWrapper } from "../../../common/page/page.styled";
 import Pagination from "../../../common/Pagination/Pagination";
 import { useQuery } from "@tanstack/react-query";
-import { getMovieList } from "./getMovieList.ts";
+import {  getMovieList } from "./getMovieList.ts";
 import Loading from "../../../common/Loading/Loading.tsx";
+import ErrorPage from "../../../common/ErrorPage/ErrorPage.tsx";
 
 const MovieList = () => {
 	const {isLoading, data} = useQuery(["movies"], getMovieList);
 
 	if (isLoading) return <Loading/>;
 
-  return (
+  if (data) return (
     <PageWrapper>
       <PageHeading>Popular movies</PageHeading>
       <Container>
@@ -30,6 +31,8 @@ const MovieList = () => {
 	    <Pagination/>
     </PageWrapper>
   );
+
+	return <ErrorPage/>
 };
 
 export default MovieList;
