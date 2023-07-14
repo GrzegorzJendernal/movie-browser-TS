@@ -1,57 +1,31 @@
 import Tile from "../../../common/Tile/Tile";
 import { Container } from "./movieList.styled";
-import poster from "../../../assets/poster.png";
 import { PageHeading, PageWrapper } from "../../../common/page/page.styled";
 import Pagination from "../../../common/Pagination/Pagination";
+import { useQuery } from "@tanstack/react-query";
+import { getMovieList } from "./getMovieList.ts";
+import Loading from "../../../common/Loading/Loading.tsx";
 
 const MovieList = () => {
+	const {isLoading, data} = useQuery(["movies"], getMovieList);
+
+	if (isLoading) return <Loading/>;
+
   return (
     <PageWrapper>
       <PageHeading>Popular movies</PageHeading>
       <Container>
-        <Tile
-          title={"Tytuł filmu"}
-          date={2020}
-          genres={["Action", "Thriller", "Horror"]}
-          note={7.5}
-          votes={38}
-          imageUrl={poster}
-        />
-        <Tile title={"Abrakadabra"} date={2010} note={9} votes={999} />
-        <Tile
-          title={"Tytuł filmu, który jest bardzo długi, żeby zobaczyć co się będzie działo"}
-          date={2020}
-          genres={["Action", "Thriller", "Horror", "kjshjcsdj", "Action", "Thriller", "Horror", "kjshjcsdj"]}
-          note={99}
-          votes={125548896}
-          imageUrl={poster}
-        />
-        <Tile title={"Tytuł filmu"} date={2020} genres={["Action", "Thriller", "Horror"]} note={7.5} votes={38} />
-        <Tile
-          title={"Tytuł filmu"}
-          date={2020}
-          genres={["Action", "Thriller", "Horror"]}
-          note={7.5}
-          votes={38}
-          imageUrl={poster}
-        />
-        <Tile
-          title={"Tytuł filmu"}
-          date={2020}
-          genres={["Action", "Thriller", "Horror"]}
-          note={7.5}
-          votes={38}
-          imageUrl={poster}
-        />
-        <Tile title={"Tytuł filmu"} date={2020} genres={["Action", "Thriller", "Horror"]} note={7.5} votes={38} />
-        <Tile
-          title={"Tytuł filmu"}
-          date={2020}
-          genres={["Action", "Thriller", "Horror"]}
-          note={7.5}
-          votes={38}
-          imageUrl={poster}
-        />
+	      {data.results.map(movie => (
+			      <Tile
+				      title={movie.title}
+				      date={movie.release_date.slice(0, 4)}
+				      genres={movie.genre_ids}
+				      note={movie.vote_average}
+				      votes={movie.vote_count}
+				      imageUrl={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : undefined}
+				      key={movie.id}
+			      />
+		      ))}
       </Container>
 	    <Pagination/>
     </PageWrapper>
