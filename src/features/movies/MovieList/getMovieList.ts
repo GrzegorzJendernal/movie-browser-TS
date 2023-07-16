@@ -1,5 +1,7 @@
 // eslint-disable-next-line import/named
 import axios from "axios";
+import { GenresData } from "../../../common/types/genres.ts";
+
 
 interface Movie {
 	adult: boolean,
@@ -51,4 +53,4 @@ const getData = async (url: string, params?: Params) => {
 
 export const getMovieList = (): Promise<MovieListData> => getData('https://api.themoviedb.org/3/movie/popular', {language: languageOptions, page: page});
 
-export const getGenres = () => getData('https://api.themoviedb.org/3/genre/movie/list');
+export const getGenres = (): Promise<GenresData> => getData('https://api.themoviedb.org/3/genre/movie/list');
