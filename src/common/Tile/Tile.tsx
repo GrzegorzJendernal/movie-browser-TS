@@ -3,7 +3,7 @@ import { Additional, Info, Tags, Tag, Note, Rates, Picture, StyledStar, StyledTi
 interface TileProps {
   title: string;
   date: string;
-  genres?: number[];
+  genres?: string[];
   note: number;
   votes: number;
   imageUrl?: string;
