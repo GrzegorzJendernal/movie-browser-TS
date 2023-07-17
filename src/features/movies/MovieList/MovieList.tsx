@@ -22,7 +22,7 @@ const MovieList = () => {
 			      <Tile
 				      title={movie.title}
 				      date={movie.release_date.slice(0, 4)}
-				      genres={movie.genre_ids.map((genreId) => `${getGenreName(genresQuery.data, genreId)}`)}
+				      genres={genresQuery.data && movie.genre_ids.map((genreId) => `${getGenreName(genresQuery.data, genreId)}`)}
 				      note={movie.vote_average}
 				      votes={movie.vote_count}
 				      imageUrl={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : undefined}
