@@ -44,13 +44,17 @@ const getData = async (url: string, params?: Params) => {
 		headers: {
 			accept: 'application/json',
 			Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZDUzMDk1NWFjZWRjMjQ3OGNiOTJhMTk0YWZkNDVhYiIsInN1YiI6IjYzZTdlYjNhNjNhYWQyMDA4NTg3NTIzMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.oxv_MlyvRTPzhd8zo1ddZvSkPgbC4gip6lYNwMbUYvs'
-		}
+		},
 	};
 
-	const response = await axios.request(options);
-	return response.data
+	try {
+		const response = await axios.request(options);
+		return response.data
+	} catch (error) {
+		console.error(error);
+	}
 };
 
 export const getMovieList = (): Promise<MovieListData> => getData('https://api.themoviedb.org/3/movie/popular', {language: languageOptions, page: page});
 
-export const getGenres = (): Promise<GenresData> => getData('https://api.themoviedb.org/3/genre/movie/list');
+export const getGenres = (): Promise<GenresData> => getData('https://api.sasasthemoviedb.org/3/genre/movie/list');
