@@ -57,4 +57,4 @@ const getData = async (url: string, params?: Params) => {
 
 export const getMovieList = (): Promise<MovieListData> => getData('https://api.themoviedb.org/3/movie/popular', {language: languageOptions, page: page});
 
-export const getGenres = (): Promise<GenresData> => getData('https://api.sasasthemoviedb.org/3/genre/movie/list');
+export const getGenres = (): Promise<GenresData> => getData('https://api.themoviedb.org/3/genre/movie/list');
