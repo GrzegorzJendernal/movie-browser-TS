@@ -1,8 +1,8 @@
 module.exports = {
   env: { browser: true, es2020: true },
   extends: [
-    'eslint:recommended',
-    'plugin:react-hooks/recommended',
+	'eslint:recommended',
+	'plugin:react-hooks/recommended',
 	  'plugin:react/recommended',
 	  'plugin:import/recommended',
 	  'plugin:jsx-a11y/recommended',
@@ -28,7 +28,7 @@ module.exports = {
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   plugins: ['react-refresh'],
   rules: {
-    'react-refresh/only-export-components': 'warn',
+	'react-refresh/only-export-components': 'warn',
 	  "react/jsx-first-prop-new-line": 2,
 	  "react/jsx-closing-bracket-location": 2,
 	  "react/react-in-jsx-scope": "off",
