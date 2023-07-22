@@ -8,7 +8,7 @@ export const useQueryParameter = (key: string) => {
 
 export const useReplaceQueryParameter = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  return ({ key, value }: { key: string; value: string }) => {
+  return ({ key, value }: { key: string; value: string | undefined }) => {
     if (!value) {
       searchParams.delete(key);
     } else {
