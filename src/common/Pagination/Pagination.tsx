@@ -1,30 +1,34 @@
-import { useEffect } from "react";
-import { useReplaceQueryParameter } from "../utils/queryParameters";
+import { useQueryParameter, useReplaceQueryParameter } from "../utils/queryParameters";
 import { Arrow, Button, ButtonsBox, Text, Wrapper } from "./pagination.styled";
 
 const Pagination = ({
-  page,
-  setPage,
+  // page,
+  // setPage,
   totalPages,
 }: {
-  page: number;
-  setPage: React.Dispatch<React.SetStateAction<number>>;
+  // page: number;
+  // setPage: React.Dispatch<React.SetStateAction<number>>;
   totalPages: number;
 }) => {
-  const totalPagesNumber = totalPages > 500 ? 500 : totalPages;
-  const setNextPage = () => setPage((old) => old + 1);
-  const setFirstPage = () => setPage(1);
-  const setLastPage = () => setPage(totalPagesNumber);
-  const setPreviousPage = () => setPage((old) => old - 1);
   const replaceQueryParameter = useReplaceQueryParameter();
+  const queryParameter = useQueryParameter("page");
+  const page = queryParameter ? +queryParameter : 1;
 
-  useEffect(() => {
+  const setPage = (page: number) => {
     replaceQueryParameter({
       key: "page",
       value: page === 1 ? undefined : `${page}`,
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page]);
+  };
+  const totalPagesNumber = totalPages > 500 ? 500 : totalPages;
+  const setNextPage = () => {
+    if (page < totalPagesNumber) setPage(page + 1);
+  };
+  const setFirstPage = () => setPage(1);
+  const setLastPage = () => setPage(totalPagesNumber);
+  const setPreviousPage = () => {
+    if (page !== 1) setPage(page - 1);
+  };
 
   return (
     <Wrapper>
