@@ -1,15 +1,7 @@
 import { useQueryParameter, useReplaceQueryParameter } from "../utils/queryParameters";
 import { Arrow, Button, ButtonsBox, Text, Wrapper } from "./pagination.styled";
 
-const Pagination = ({
-  // page,
-  // setPage,
-  totalPages,
-}: {
-  // page: number;
-  // setPage: React.Dispatch<React.SetStateAction<number>>;
-  totalPages: number;
-}) => {
+const Pagination = ({ totalPages }: { totalPages: number }) => {
   const replaceQueryParameter = useReplaceQueryParameter();
   const queryParameter = useQueryParameter("page");
   const page = queryParameter ? +queryParameter : 1;
