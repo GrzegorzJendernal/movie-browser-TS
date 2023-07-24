@@ -29,6 +29,7 @@ interface MovieListData {
 interface Params {
   language: string;
   page: string;
+  query?: string;
 }
 
 const languageOptions = "en-US";
@@ -56,5 +57,8 @@ const getData = async (url: string, params?: Params) => {
 
 export const getMovieList = (page: number): Promise<MovieListData> =>
   getData("/movie/popular", { language: languageOptions, page: `${page}` });
+
+export const getMoviesByQuery = (page: number, query: string): Promise<MovieListData> =>
+  getData("/search/movie", { language: languageOptions, page: `${page}`, query: `${query}` });
 
 export const getGenres = (): Promise<GenresData> => getData("/genre/movie/list");
