@@ -3,15 +3,19 @@ import { Container } from "./movieList.styled";
 import { PageHeading, PageWrapper } from "../../../common/page/page.styled";
 import Pagination from "../../../common/Pagination/Pagination";
 import { useQuery } from "@tanstack/react-query";
-import { getGenres, getMovieList } from "./getMovieList.ts";
+import { getGenres, getMovieList, getMoviesByQuery } from "./getMovieList.ts";
 import Loading from "../../../common/Loading/Loading.tsx";
 import ErrorPage from "../../../common/ErrorPage/ErrorPage.tsx";
 import { getGenreName } from "../../../common/utils/getGenresName.ts";
 import { usePageParameter } from "../../../common/utils/usePageParameter.ts";
+import { useSearchParameter } from "../../../common/utils/useSearchParameter.ts";
 
 const MovieList = () => {
   const page = usePageParameter();
-  const { isLoading, data } = useQuery(["movies", page], () => getMovieList(page));
+  const query = useSearchParameter();
+  const { isLoading, data } = useQuery(["movies", page, query], () =>
+    query === "" ? getMovieList(page) : getMoviesByQuery(page, query),
+  );
   const genresQuery = useQuery(["genres"], getGenres);
 
   if (isLoading) return <Loading />;
@@ -19,7 +23,9 @@ const MovieList = () => {
   if (data)
     return (
       <PageWrapper>
-        <PageHeading>Popular movies</PageHeading>
+        <PageHeading>
+          {query === "" ? `Popular movies` : `Search results for “${query}” (${data.total_results})`}
+        </PageHeading>
         <Container>
           {data.results.map((movie) => (
             <Tile
