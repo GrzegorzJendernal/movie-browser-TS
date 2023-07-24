@@ -7,19 +7,12 @@ import { getGenres, getMovieList } from "./getMovieList.ts";
 import Loading from "../../../common/Loading/Loading.tsx";
 import ErrorPage from "../../../common/ErrorPage/ErrorPage.tsx";
 import { getGenreName } from "../../../common/utils/getGenresName.ts";
-import { useEffect, useState } from "react";
-import { useQueryParameter } from "../../../common/utils/queryParameters.ts";
+import { usePageParameter } from "../../../common/utils/usePageParameter.ts";
 
 const MovieList = () => {
-  const [page, setPage] = useState(1);
+  const page = usePageParameter();
   const { isLoading, data } = useQuery(["movies", page], () => getMovieList(page));
   const genresQuery = useQuery(["genres"], getGenres);
-  const queryParameter = useQueryParameter("page");
-
-  useEffect(() => {
-    if (!queryParameter) return setPage(1);
-    setPage(+queryParameter);
-  }, [queryParameter]);
 
   if (isLoading) return <Loading />;
 
