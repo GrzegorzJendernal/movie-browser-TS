@@ -7,13 +7,13 @@ import { getGenres, getMovieList, getMoviesByQuery } from "../../../common/api/a
 import Loading from "../../../common/Loading/Loading.tsx";
 import ErrorPage from "../../../common/ErrorPage/ErrorPage.tsx";
 import { getGenreName } from "../../../common/utils/getGenresName.ts";
-import { usePageParameter } from "../../../common/utils/usePageParameter.ts";
-import { useSearchParameter } from "../../../common/utils/useSearchParameter.ts";
 import NoResults from "../../../common/NoResults/NoResults.tsx";
+import { useQueryParam } from "../../../common/utils/useQueryParam.ts";
 
 const MovieList = () => {
-  const page = usePageParameter();
-  const query = useSearchParameter();
+  const pageParam = useQueryParam("page");
+  const page = pageParam === "" ? 1 : +pageParam;
+  const query = useQueryParam("search");
   const { isLoading, data } = useQuery(["movies", page, query], () =>
     query === "" ? getMovieList(page) : getMoviesByQuery(page, query),
   );
