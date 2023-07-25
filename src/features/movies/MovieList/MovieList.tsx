@@ -3,12 +3,13 @@ import { Container } from "./movieList.styled";
 import { PageHeading, PageWrapper } from "../../../common/page/page.styled";
 import Pagination from "../../../common/Pagination/Pagination";
 import { useQuery } from "@tanstack/react-query";
-import { getGenres, getMovieList, getMoviesByQuery } from "./getMovieList.ts";
+import { getGenres, getMovieList, getMoviesByQuery } from "../../../common/api/apiRequests.ts";
 import Loading from "../../../common/Loading/Loading.tsx";
 import ErrorPage from "../../../common/ErrorPage/ErrorPage.tsx";
 import { getGenreName } from "../../../common/utils/getGenresName.ts";
 import { usePageParameter } from "../../../common/utils/usePageParameter.ts";
 import { useSearchParameter } from "../../../common/utils/useSearchParameter.ts";
+import NoResults from "../../../common/NoResults/NoResults.tsx";
 
 const MovieList = () => {
   const page = usePageParameter();
@@ -21,7 +22,9 @@ const MovieList = () => {
   if (isLoading) return <Loading />;
 
   if (data)
-    return (
+    return data.total_results === 0 ? (
+      <NoResults query={query} />
+    ) : (
       <PageWrapper>
         <PageHeading>
           {query === "" ? `Popular movies` : `Search results for “${query}” (${data.total_results})`}
