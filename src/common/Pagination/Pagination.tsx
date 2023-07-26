@@ -1,15 +1,16 @@
-import { useQueryParameter, useReplaceQueryParameter } from "../utils/queryParameters";
+import { useReplaceQueryParameter } from "../utils/queryParameters";
+import { useQueryParam } from "../utils/useQueryParam";
 import { Arrow, Button, ButtonsBox, Text, Wrapper } from "./pagination.styled";
 
 const Pagination = ({ totalPages }: { totalPages: number }) => {
   const replaceQueryParameter = useReplaceQueryParameter();
-  const queryParameter = useQueryParameter("page");
-  const page = queryParameter ? +queryParameter : 1;
+  const pageParam = useQueryParam("page");
+  const page = pageParam === "" ? 1 : +pageParam;
 
   const setPage = (page: number) => {
     replaceQueryParameter({
       key: "page",
-      value: page === 1 ? undefined : `${page}`,
+      value: `${page}`,
     });
   };
   const totalPagesNumber = totalPages > 500 ? 500 : totalPages;
