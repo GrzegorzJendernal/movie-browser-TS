@@ -8,7 +8,7 @@ const Search = () => {
   const setQuery = ({ target }: { target: { value: string } }) => {
     replaceQueryParameter({
       key: "search",
-      value: target.value.trim(),
+      value: target.value.trim() !== "" ? target.value : "",
     });
   };
   return (
