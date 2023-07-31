@@ -2,6 +2,7 @@
 import axios from "axios";
 import { GenresData } from "../types/genres.ts";
 import { MovieListData, Params } from "../types/moviesData.ts";
+import { wait } from "../utils/wait.ts";
 
 const languageOptions = "en-US";
 
@@ -19,6 +20,7 @@ const getData = async (url: string, params?: Params) => {
   };
 
   try {
+    await wait();
     const response = await axios.request(options);
     return response.data;
   } catch (error) {
