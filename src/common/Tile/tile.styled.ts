@@ -1,10 +1,22 @@
 import styled from "styled-components";
 import noPoster from "./noMoviePoster.svg";
 import { ReactComponent as Star } from "./star.svg";
+import { Link } from "react-router-dom";
 
 interface PictureProps {
   imageUrl?: string;
 }
+
+export const StyledLink = styled(Link)`
+  display: flex;
+  height: 100%;
+  text-decoration: none;
+  transition: transform 500ms;
+
+  &:hover {
+    transform: translateX(-5px);
+  }
+`;
 
 export const StyledTile = styled.section`
   display: flex;
