@@ -24,6 +24,6 @@ export interface MovieListData {
 
 export interface Params {
   language: string;
-  page: string;
+  page?: string;
   query?: string;
 }
