@@ -21,6 +21,10 @@ export const router = createHashRouter([
             element: <MovieList />,
           },
           {
+            path: "/movies/:movieId",
+            element: <div>sialalala</div>,
+          },
+          {
             path: "/people",
             element: <ErrorPage />,
           },
