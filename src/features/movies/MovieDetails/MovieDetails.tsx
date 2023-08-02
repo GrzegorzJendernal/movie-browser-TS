@@ -6,7 +6,7 @@ import Loading from "../../../common/Loading/Loading";
 
 const MovieDetails = () => {
   const id = useIdFromUrl();
-  const { data, isLoading } = useQuery(["movie"], () => getMovieDetails(id));
+  const { data, isLoading } = useQuery(["movie", id], () => getMovieDetails(id));
 
   if (isLoading) return <Loading />;
 
