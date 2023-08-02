@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/named
 import axios from "axios";
 import { GenresData } from "../types/genres.ts";
-import { MovieListData, Params } from "../types/moviesData.ts";
+import { Movie, MovieListData, Params } from "../types/moviesData.ts";
 import { wait } from "../utils/wait.ts";
 
 const languageOptions = "en-US";
@@ -35,3 +35,5 @@ export const getMoviesByQuery = (page: number, query: string): Promise<MovieList
   getData("/search/movie", { language: languageOptions, page: `${page}`, query: `${query}` });
 
 export const getGenres = (): Promise<GenresData> => getData("/genre/movie/list");
+
+export const getMovieDetails = (id: string): Promise<Movie> => getData(`movie/${id}`, { language: languageOptions });
