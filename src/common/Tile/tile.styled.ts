@@ -2,10 +2,7 @@ import styled from "styled-components";
 import noPoster from "./noMoviePoster.svg";
 import { ReactComponent as Star } from "./star.svg";
 import { Link } from "react-router-dom";
-
-interface PictureProps {
-  imageUrl?: string;
-}
+import { PictureProps } from "../types/styledProps";
 
 export const StyledLink = styled(Link)`
   display: flex;
