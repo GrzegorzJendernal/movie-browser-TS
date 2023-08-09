@@ -11,6 +11,7 @@ import {
   BigStar,
   BigTitle,
   MainInfo,
+  NotesWrapper,
   OutOf,
   Poster,
   VotesAmount,
@@ -30,9 +31,11 @@ const MovieDetails = () => {
             <MainInfo>
               <BigTitle>{data.title}</BigTitle>
               <BigRating>
-                <BigStar />
-                <BigNote>{data.vote_average}</BigNote>
-                <OutOf>/ 10</OutOf>
+                <NotesWrapper>
+                  <BigStar />
+                  <BigNote>{data.vote_average.toFixed(1)}</BigNote>
+                  <OutOf>/ 10</OutOf>
+                </NotesWrapper>
                 <VotesAmount>{data.vote_count} votes</VotesAmount>
               </BigRating>
             </MainInfo>
