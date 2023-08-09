@@ -13,6 +13,9 @@ export const Backdrop = styled.section`
 `;
 
 export const Poster = styled.div<PictureProps>`
+  display: flex;
+  justify-self: center;
+  align-items: flex-end;
   margin: 0 auto;
   width: 1368px;
   height: 100%;
@@ -34,20 +37,30 @@ export const Poster = styled.div<PictureProps>`
 
 export const MainInfo = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 24px;
   color: ${({ theme }) => theme.colors.base};
   line-height: 1.2;
+  margin-bottom: 56px;
 `;
 
 export const BigTitle = styled.h2`
   font-size: 64px;
   font-style: normal;
   font-weight: 600;
+  margin: 0;
 `;
 
 export const BigRating = styled.div`
-  width: 126px;
-  height: 75px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+
+export const NotesWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
 `;
 
 export const BigStar = styled(Star)`
@@ -66,9 +79,10 @@ export const OutOf = styled.span`
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
+  padding-top: 10px;
 `;
 
-export const VotesAmount = styled.span`
+export const VotesAmount = styled.div`
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
