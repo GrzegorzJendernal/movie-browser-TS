@@ -4,18 +4,7 @@ import { getMovieDetails } from "../../../common/api/apiRequests";
 import ErrorPage from "../../../common/ErrorPage/ErrorPage";
 import Loading from "../../../common/Loading/Loading";
 import { PageWrapper } from "../../../common/page/page.styled";
-import {
-  Backdrop,
-  BigNote,
-  BigRating,
-  BigStar,
-  BigTitle,
-  MainInfo,
-  NotesWrapper,
-  OutOf,
-  Poster,
-  VotesAmount,
-} from "./movieDetails.styled";
+import Backdrop from "./Backdrop/Backdrop";
 
 const MovieDetails = () => {
   const id = useIdFromUrl();
@@ -26,21 +15,7 @@ const MovieDetails = () => {
   if (data)
     return (
       <>
-        <Backdrop>
-          <Poster imageUrl={`https://image.tmdb.org/t/p/original${data.backdrop_path}`}>
-            <MainInfo>
-              <BigTitle>{data.title}</BigTitle>
-              <BigRating>
-                <NotesWrapper>
-                  <BigStar />
-                  <BigNote>{data.vote_average.toFixed(1)}</BigNote>
-                  <OutOf>/ 10</OutOf>
-                </NotesWrapper>
-                <VotesAmount>{data.vote_count} votes</VotesAmount>
-              </BigRating>
-            </MainInfo>
-          </Poster>
-        </Backdrop>
+        <Backdrop path={data.backdrop_path} title={data.title} note={data.vote_average} votes={data.vote_count} />
         <PageWrapper></PageWrapper>
       </>
     );
