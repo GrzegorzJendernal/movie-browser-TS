@@ -50,12 +50,12 @@ export const Info = styled.article`
   grid-gap: 8px;
   grid-template-columns: 1fr;
   margin-bottom: 8px;
+  grid-area: info;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    grid-area: info;
     margin-bottom: unset;
   }
 `;
@@ -147,12 +147,12 @@ export const Rates = styled.div`
   margin-top: auto;
   align-items: center;
   align-self: flex-start;
+  grid-area: rates;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     margin-top: unset;
     font-size: 15px;
     gap: 8px;
-    grid-area: rates;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
@@ -177,4 +177,11 @@ export const Note = styled.span`
 export const Votes = styled.span`
   font-weight: 400;
   color: ${({ theme }) => theme.colors.secondary};
+`;
+
+export const Overview = styled.span`
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.6;
+  grid-area: overview;
 `;
