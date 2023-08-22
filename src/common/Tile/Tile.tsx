@@ -14,7 +14,7 @@ import {
 } from "./tile.styled";
 
 interface TileProps {
-  path: string;
+  path?: string;
   title: string;
   date: string;
   genres?: string[];
@@ -22,24 +22,25 @@ interface TileProps {
   votes: number;
   imageUrl?: string;
 }
+
 const Tile = ({ title, date, genres, note, votes, imageUrl, path }: TileProps) => {
-  return (
-    <StyledLink to={path}>
-      <StyledTile>
-        <Picture imageUrl={imageUrl} />
-        <Info>
-          <Title>{title}</Title>
-          <Additional>{date}</Additional>
-          <Tags>{!!genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}</Tags>
-        </Info>
-        <Rates>
-          <StyledStar />
-          <Note>{note}</Note>
-          <Votes>{votes} votes</Votes>
-        </Rates>
-      </StyledTile>
-    </StyledLink>
+  const tileContent = (
+    <StyledTile>
+      <Picture imageUrl={imageUrl} />
+      <Info>
+        <Title>{title}</Title>
+        <Additional>{date}</Additional>
+        <Tags>{!!genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}</Tags>
+      </Info>
+      <Rates>
+        <StyledStar />
+        <Note>{note}</Note>
+        <Votes>{votes} votes</Votes>
+      </Rates>
+    </StyledTile>
   );
+
+  return path ? <StyledLink to={path}>{tileContent}</StyledLink> : <>{tileContent}</>;
 };
 
 export default Tile;
