@@ -5,6 +5,7 @@ import ErrorPage from "../../../common/ErrorPage/ErrorPage";
 import Loading from "../../../common/Loading/Loading";
 import { PageWrapper } from "../../../common/page/page.styled";
 import Backdrop from "./Backdrop/Backdrop";
+import Tile from "../../../common/Tile/Tile";
 
 const MovieDetails = () => {
   const id = useIdFromUrl();
@@ -16,7 +17,16 @@ const MovieDetails = () => {
     return (
       <>
         <Backdrop path={data.backdrop_path} title={data.title} note={data.vote_average} votes={data.vote_count} />
-        <PageWrapper></PageWrapper>
+        <PageWrapper>
+          <Tile
+            title={data.title}
+            date={data.release_date}
+            note={data.vote_average}
+            votes={data.vote_average}
+            imageUrl={data.poster_path ? `https://image.tmdb.org/t/p/w500/${data.poster_path}` : undefined}
+            overview={data.overview}
+          />
+        </PageWrapper>
       </>
     );
 
