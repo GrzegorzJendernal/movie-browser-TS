@@ -11,6 +11,7 @@ import {
   Title,
   Votes,
   StyledLink,
+  Overview,
 } from "./tile.styled";
 
 interface TileProps {
@@ -21,9 +22,10 @@ interface TileProps {
   note: number;
   votes: number;
   imageUrl?: string;
+  overview?: string;
 }
 
-const Tile = ({ title, date, genres, note, votes, imageUrl, path }: TileProps) => {
+const Tile = ({ title, date, genres, note, votes, imageUrl, path, overview }: TileProps) => {
   const tileContent = (
     <StyledTile>
       <Picture imageUrl={imageUrl} />
@@ -37,6 +39,7 @@ const Tile = ({ title, date, genres, note, votes, imageUrl, path }: TileProps) =
         <Note>{note}</Note>
         <Votes>{votes} votes</Votes>
       </Rates>
+      {!!overview && <Overview>{overview}</Overview>}
     </StyledTile>
   );
 
