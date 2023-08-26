@@ -22,7 +22,7 @@ const MovieDetails = () => {
             title={data.title}
             date={data.release_date}
             note={data.vote_average}
-            votes={data.vote_average}
+            votes={data.vote_count}
             imageUrl={data.poster_path ? `https://image.tmdb.org/t/p/w500/${data.poster_path}` : undefined}
             overview={data.overview}
           />
