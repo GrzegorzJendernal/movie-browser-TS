@@ -36,7 +36,7 @@ const Tile = ({ title, date, genres, note, votes, imageUrl, path, overview }: Ti
       </Info>
       <Rates>
         <StyledStar />
-        <Note>{note}</Note>
+        <Note>{note.toFixed(1)}</Note>
         <Votes>{votes} votes</Votes>
       </Rates>
       {!!overview && <Overview>{overview}</Overview>}
