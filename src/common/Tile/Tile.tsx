@@ -32,7 +32,7 @@ const Tile = ({ title, date, genres, note, votes, imageUrl, path, overview }: Ti
       <Picture imageUrl={imageUrl} />
       <Data>
         <Info>
-          <Title>{title}</Title>
+          <Title description={path ? true : false}>{title}</Title>
           <Additional>{date}</Additional>
           <Tags>{!!genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}</Tags>
         </Info>
