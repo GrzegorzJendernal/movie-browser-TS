@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import noPoster from "./noMoviePoster.svg";
 import { ReactComponent as Star } from "../assets/star.svg";
 import { Link } from "react-router-dom";
-import { PictureProps } from "../types/styledProps";
+import { PictureProps, DescriptionProps } from "../types/styledProps";
 
 export const StyledLink = styled(Link)`
   display: flex;
@@ -15,24 +15,37 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-export const StyledTile = styled.section`
-  display: flex;
-  flex-direction: column;
+export const StyledTile = styled.section<DescriptionProps>`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.base};
   box-shadow: ${({ theme }) => theme.boxShadow};
   border-radius: 5px;
-  padding: 16px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    display: grid;
-    grid-template-areas:
-      "picture info"
-      "picture rates";
-    grid-template-columns: 1fr 1.5fr;
-    grid-template-rows: auto 1fr;
-    grid-gap: 8px 16px;
-  }
+  ${({ description }) =>
+    description
+      ? css`
+          display: flex;
+          flex-direction: column;
+          padding: 16px;
+
+          @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+            display: grid;
+            grid-template-areas: "picture data";
+            grid-template-columns: 1fr 1.5fr;
+            grid-gap: 16px;
+          }
+        `
+      : css`
+          display: grid;
+          grid-template-areas:
+            "picture data"
+            "picture overview";
+          grid-template-columns: 312px 1.5fr;
+          grid-template-rows: auto 1fr;
+          padding: 40px;
+          grid-column-gap: 40px;
+          margin-top: 8px;
+        `}
 `;
 
 export const Picture = styled.div<PictureProps>`
@@ -43,6 +56,10 @@ export const Picture = styled.div<PictureProps>`
   background-repeat: no-repeat;
   background-size: 100%;
   grid-area: picture;
+`;
+
+export const Data = styled.div`
+  grid-area: data;
 `;
 
 export const Info = styled.article`
@@ -56,7 +73,6 @@ export const Info = styled.article`
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-bottom: unset;
   }
 `;
 
