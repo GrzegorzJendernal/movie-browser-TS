@@ -76,9 +76,9 @@ export const Info = styled.article`
   }
 `;
 
-export const Title = styled.h2`
+export const Title = styled.h2<DescriptionProps>`
   font-weight: 500;
-  font-size: 22px;
+  font-size: ${({ description }) => (description ? 22 : 36)}px;
   line-height: 1.3;
   color: ${({ theme }) => theme.colors.primary};
   margin: 0;
