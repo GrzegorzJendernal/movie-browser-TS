@@ -22,7 +22,7 @@ export const StyledTile = styled.section<DescriptionProps>`
   border-radius: 5px;
 
   ${({ description }) =>
-    description
+    !description
       ? css`
           display: flex;
           flex-direction: column;
@@ -62,9 +62,9 @@ export const Data = styled.div`
   grid-area: data;
 `;
 
-export const Info = styled.article`
+export const Info = styled.article<DescriptionProps>`
   display: grid;
-  grid-gap: 8px;
+  grid-gap: ${({ description }) => (!description ? 8 : 24)}px;
   grid-template-columns: 1fr;
   margin-bottom: 8px;
   grid-area: info;
@@ -78,7 +78,7 @@ export const Info = styled.article`
 
 export const Title = styled.h2<DescriptionProps>`
   font-weight: 500;
-  font-size: ${({ description }) => (description ? 22 : 36)}px;
+  font-size: ${({ description }) => (!description ? 22 : 36)}px;
   line-height: 1.3;
   color: ${({ theme }) => theme.colors.primary};
   margin: 0;
@@ -145,6 +145,18 @@ export const Additional = styled.span`
   @media (max-width: ${({ theme }) => theme.breakpoints.smallest}) {
     font-size: 13px;
   }
+`;
+
+export const Details = styled.div`
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.2;
+  color: ${({ theme }) => theme.colors.primary};
+`;
+
+export const Property = styled.span`
+  color: ${({ theme }) => theme.colors.secondary};
 `;
 
 export const Tags = styled.ul`
