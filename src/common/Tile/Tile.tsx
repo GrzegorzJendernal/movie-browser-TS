@@ -14,6 +14,8 @@ import {
   Overview,
   Data,
   YearOfPublication,
+  Details,
+  Property,
 } from "./tile.styled";
 
 interface TileProps {
@@ -26,17 +28,34 @@ interface TileProps {
   imageUrl?: string;
   overview?: string;
   movie?: boolean;
+  countries?: [{ iso_3166_1: string; name: string }];
 }
 
-const Tile = ({ title, date, genres, note, votes, imageUrl, path, overview, movie }: TileProps) => {
+const Tile = ({ title, date, genres, note, votes, imageUrl, path, overview, movie, countries }: TileProps) => {
+  const additionalContent = () => {
+    if (path) return date;
+    return (
+      <>
+        <Details>
+          <Property>Production: </Property>
+          {!!countries &&
+            countries.map((country, index) => (index + 1 === countries.length ? country.name : `${country.name}, `))}
+        </Details>
+        <Details>
+          <Property>Relase date:</Property>
+        </Details>
+      </>
+    );
+  };
+
   const tileContent = (
-    <StyledTile description={path ? true : false}>
+    <StyledTile description={!path ? true : false}>
       <Picture imageUrl={imageUrl} />
       <Data>
-        <Info>
-          <Title description={path ? true : false}>{title}</Title>
+        <Info description={!path ? true : false}>
+          <Title description={!path ? true : false}>{title}</Title>
           {!!movie && <YearOfPublication>{date.slice(0, 4)}</YearOfPublication>}
-          <Additional>{date}</Additional>
+          <Additional>{additionalContent()}</Additional>
           <Tags>{!!genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}</Tags>
         </Info>
         <Rates>
