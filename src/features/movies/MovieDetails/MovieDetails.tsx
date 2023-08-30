@@ -26,6 +26,7 @@ const MovieDetails = () => {
             imageUrl={data.poster_path ? `https://image.tmdb.org/t/p/w500/${data.poster_path}` : undefined}
             overview={data.overview}
             movie
+            countries={data.production_countries}
           />
         </PageWrapper>
       </>
