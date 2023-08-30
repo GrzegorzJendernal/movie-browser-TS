@@ -25,6 +25,7 @@ const MovieDetails = () => {
             votes={data.vote_count}
             imageUrl={data.poster_path ? `https://image.tmdb.org/t/p/w500/${data.poster_path}` : undefined}
             overview={data.overview}
+            movie
           />
         </PageWrapper>
       </>
