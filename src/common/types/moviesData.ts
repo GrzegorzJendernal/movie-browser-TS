@@ -13,6 +13,7 @@ export interface Movie {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  production_countries?: [{ iso_3166_1: string; name: string }];
 }
 
 export interface MovieListData {
