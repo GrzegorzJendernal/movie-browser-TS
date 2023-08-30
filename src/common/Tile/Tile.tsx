@@ -13,6 +13,7 @@ import {
   StyledLink,
   Overview,
   Data,
+  YearOfPublication,
 } from "./tile.styled";
 
 interface TileProps {
@@ -24,15 +25,17 @@ interface TileProps {
   votes: number;
   imageUrl?: string;
   overview?: string;
+  movie?: boolean;
 }
 
-const Tile = ({ title, date, genres, note, votes, imageUrl, path, overview }: TileProps) => {
+const Tile = ({ title, date, genres, note, votes, imageUrl, path, overview, movie }: TileProps) => {
   const tileContent = (
     <StyledTile description={path ? true : false}>
       <Picture imageUrl={imageUrl} />
       <Data>
         <Info>
           <Title description={path ? true : false}>{title}</Title>
+          {!!movie && <YearOfPublication>{date.slice(0, 4)}</YearOfPublication>}
           <Additional>{date}</Additional>
           <Tags>{!!genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}</Tags>
         </Info>
