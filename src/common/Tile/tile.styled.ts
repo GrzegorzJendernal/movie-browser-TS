@@ -84,6 +84,10 @@ export const Title = styled.h2<DescriptionProps>`
   margin: 0;
   word-wrap: normal;
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    font-size: 26px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 20px;
   }
@@ -94,6 +98,32 @@ export const Title = styled.h2<DescriptionProps>`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallest}) {
     font-size: 16px;
+  }
+`;
+
+export const YearOfPublication = styled.span`
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.2;
+  color: ${({ theme }) => theme.colors.primary};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    font-size: 20px;
+    line-height: 1.3;
+    color: ${({ theme }) => theme.colors.secondary};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 18px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    font-size: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallest}) {
+    font-size: 13px;
   }
 `;
 
