@@ -30,7 +30,9 @@ export const StyledTile = styled.section<DescriptionProps>`
 
           @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
             display: grid;
-            grid-template-areas: "picture data";
+            grid-template-areas:
+              "picture info"
+              "picture rates";
             grid-template-columns: 1fr 1.5fr;
             grid-gap: 16px;
           }
@@ -38,7 +40,8 @@ export const StyledTile = styled.section<DescriptionProps>`
       : css`
           display: grid;
           grid-template-areas:
-            "picture data"
+            "picture info"
+            "picture rates"
             "picture overview";
           grid-template-columns: 312px 1.5fr;
           grid-template-rows: auto 1fr;
@@ -56,10 +59,6 @@ export const Picture = styled.div<PictureProps>`
   background-repeat: no-repeat;
   background-size: 100%;
   grid-area: picture;
-`;
-
-export const Data = styled.div`
-  grid-area: data;
 `;
 
 export const Info = styled.article<DescriptionProps>`
@@ -157,6 +156,7 @@ export const Details = styled.div`
 
 export const Property = styled.span`
   color: ${({ theme }) => theme.colors.secondary};
+  margin-right: 10px;
 `;
 
 export const Tags = styled.ul`
