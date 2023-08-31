@@ -1,3 +1,4 @@
+import { convertDateFormat } from "../utils/convertDateFormat";
 import {
   Additional,
   Info,
@@ -12,7 +13,6 @@ import {
   Votes,
   StyledLink,
   Overview,
-  Data,
   YearOfPublication,
   Details,
   Property,
@@ -29,21 +29,38 @@ interface TileProps {
   overview?: string;
   movie?: boolean;
   countries?: [{ iso_3166_1: string; name: string }];
+  releaseDate?: string;
 }
 
-const Tile = ({ title, date, genres, note, votes, imageUrl, path, overview, movie, countries }: TileProps) => {
+const Tile = ({
+  title,
+  date,
+  genres,
+  note,
+  votes,
+  imageUrl,
+  path,
+  overview,
+  movie,
+  countries,
+  releaseDate,
+}: TileProps) => {
   const additionalContent = () => {
     if (path) return date;
     return (
       <>
-        <Details>
-          <Property>Production: </Property>
-          {!!countries &&
-            countries.map((country, index) => (index + 1 === countries.length ? country.name : `${country.name}, `))}
-        </Details>
-        <Details>
-          <Property>Relase date:</Property>
-        </Details>
+        {!!countries && (
+          <Details>
+            <Property>Production: </Property>
+            {countries.map((country, index) => (index + 1 === countries.length ? country.name : `${country.name}, `))}
+          </Details>
+        )}
+        {!!releaseDate && (
+          <Details>
+            <Property>Relase date: </Property>
+            {convertDateFormat(releaseDate)}
+          </Details>
+        )}
       </>
     );
   };
@@ -51,19 +68,17 @@ const Tile = ({ title, date, genres, note, votes, imageUrl, path, overview, movi
   const tileContent = (
     <StyledTile description={!path ? true : false}>
       <Picture imageUrl={imageUrl} />
-      <Data>
-        <Info description={!path ? true : false}>
-          <Title description={!path ? true : false}>{title}</Title>
-          {!!movie && <YearOfPublication>{date.slice(0, 4)}</YearOfPublication>}
-          <Additional>{additionalContent()}</Additional>
-          <Tags>{!!genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}</Tags>
-        </Info>
-        <Rates>
-          <StyledStar />
-          <Note>{note.toFixed(1)}</Note>
-          <Votes>{votes} votes</Votes>
-        </Rates>
-      </Data>
+      <Info description={!path ? true : false}>
+        <Title description={!path ? true : false}>{title}</Title>
+        {!!movie && <YearOfPublication>{date.slice(0, 4)}</YearOfPublication>}
+        <Additional>{additionalContent()}</Additional>
+        <Tags>{!!genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}</Tags>
+      </Info>
+      <Rates>
+        <StyledStar />
+        <Note>{note.toFixed(1)}</Note>
+        <Votes>{votes} votes</Votes>
+      </Rates>
       {!!overview && <Overview>{overview}</Overview>}
     </StyledTile>
   );
