@@ -72,11 +72,13 @@ const Tile = ({
         <Title description={!path ? true : false}>{title}</Title>
         {!!movie && <YearOfPublication>{date.slice(0, 4)}</YearOfPublication>}
         <Additional>{additionalContent()}</Additional>
-        <Tags>{!!genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}</Tags>
+        <Tags movie={movie}>{!!genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}</Tags>
       </Info>
       <Rates>
         <StyledStar />
-        <Note>{note.toFixed(1)}</Note>
+        <Note>
+          {note.toFixed(1)} {!!movie && <Votes>/ 10</Votes>}
+        </Note>
         <Votes>{votes} votes</Votes>
       </Rates>
       {!!overview && <Overview>{overview}</Overview>}
