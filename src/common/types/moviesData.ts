@@ -14,6 +14,7 @@ export interface Movie {
   vote_average: number;
   vote_count: number;
   production_countries?: [{ iso_3166_1: string; name: string }];
+  genres: [{ id: number; name: string }];
 }
 
 export interface MovieListData {
