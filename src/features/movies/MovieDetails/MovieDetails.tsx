@@ -27,6 +27,8 @@ const MovieDetails = () => {
             overview={data.overview}
             movie
             countries={data.production_countries}
+            releaseDate={data.release_date}
+            genres={data.genres.map((genre) => genre.name)}
           />
         </PageWrapper>
       </>
