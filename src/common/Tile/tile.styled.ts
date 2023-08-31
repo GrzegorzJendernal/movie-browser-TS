@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import noPoster from "./noMoviePoster.svg";
 import { ReactComponent as Star } from "../assets/star.svg";
 import { Link } from "react-router-dom";
-import { PictureProps, DescriptionProps } from "../types/styledProps";
+import { PictureProps, DescriptionProps, MovieTileProps } from "../types/styledProps";
 
 export const StyledLink = styled(Link)`
   display: flex;
@@ -159,12 +159,12 @@ export const Property = styled.span`
   margin-right: 10px;
 `;
 
-export const Tags = styled.ul`
+export const Tags = styled.ul<MovieTileProps>`
   list-style: none;
   padding: 0;
   display: flex;
   flex-direction: row;
-  gap: 8px;
+  gap: ${({ movie }) => (movie ? 16 : 8)}px;
   margin: 0;
   flex-wrap: wrap;
 `;
