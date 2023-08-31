@@ -5,3 +5,7 @@ export interface PictureProps {
 export interface DescriptionProps {
   description?: boolean;
 }
+
+export interface MovieTileProps {
+  movie?: boolean;
+}
