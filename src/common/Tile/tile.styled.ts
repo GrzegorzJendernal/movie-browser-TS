@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import noPoster from "./noMoviePoster.svg";
 import { ReactComponent as Star } from "../assets/star.svg";
 import { Link } from "react-router-dom";
-import { PictureProps, DescriptionProps, MovieTileProps } from "../types/styledProps";
+import { PictureProps, DescriptionProps, StyledTileProps } from "../types/styledProps";
 
 export const StyledLink = styled(Link)`
   display: flex;
@@ -159,7 +159,7 @@ export const Property = styled.span`
   margin-right: 10px;
 `;
 
-export const Tags = styled.ul<MovieTileProps>`
+export const Tags = styled.ul<StyledTileProps>`
   list-style: none;
   padding: 0;
   display: flex;
@@ -225,6 +225,14 @@ export const Rates = styled.div`
 export const StyledStar = styled(Star)`
   width: 24px;
   height: auto;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 20px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    width: 16px;
+  }
 `;
 
 export const Note = styled.span`
