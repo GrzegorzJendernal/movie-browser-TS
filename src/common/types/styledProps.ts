@@ -6,6 +6,6 @@ export interface DescriptionProps {
   description?: boolean;
 }
 
-export interface MovieTileProps {
+export interface StyledTileProps {
   movie?: boolean;
 }
