@@ -14,7 +14,7 @@ import {
   StyledLink,
   Overview,
   YearOfPublication,
-  Details,
+  Properties,
   Property,
 } from "./tile.styled";
 
@@ -50,36 +50,39 @@ const Tile = ({
     return (
       <>
         {!!countries && (
-          <Details>
+          <Properties>
             <Property>Production: </Property>
             {countries.map((country, index) => (index + 1 === countries.length ? country.name : `${country.name}, `))}
-          </Details>
+          </Properties>
         )}
         {!!releaseDate && (
-          <Details>
+          <Properties>
             <Property>Relase date: </Property>
             {convertDateFormat(releaseDate)}
-          </Details>
+          </Properties>
         )}
       </>
     );
   };
 
   const tileContent = (
-    <StyledTile description={!path ? true : false}>
+    <StyledTile details={!path ? true : false}>
       <Picture imageUrl={imageUrl} />
-      <Info description={!path ? true : false}>
-        <Title description={!path ? true : false}>{title}</Title>
+      <Info details={!path ? true : false}>
+        <Title details={!path ? true : false}>{title}</Title>
         {!!movie && <YearOfPublication>{date.slice(0, 4)}</YearOfPublication>}
         <Additional>{additionalContent()}</Additional>
         <Tags movie={movie}>{!!genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}</Tags>
       </Info>
-      <Rates>
+      <Rates movie={movie}>
         <StyledStar />
-        <Note>
-          {note.toFixed(1)} {!!movie && <Votes>/ 10</Votes>}
-        </Note>
-        <Votes>{votes} votes</Votes>
+        <Note movie={movie}>{note.toFixed(1)}</Note>
+        {!!movie && (
+          <Votes hideOnMobile movie={movie}>
+            / 10
+          </Votes>
+        )}
+        <Votes movie={movie}>{votes} votes</Votes>
       </Rates>
       {!!overview && <Overview>{overview}</Overview>}
     </StyledTile>
