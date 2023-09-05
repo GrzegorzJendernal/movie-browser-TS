@@ -319,6 +319,22 @@ export const Note = styled.span<StyledTileProps>`
       font-style: normal;
       font-weight: 500;
       line-height: 1.3;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        font-size: 20px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        font-size: 18px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        font-size: 16px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.smallest}) {
+        font-size: 13px;
+      }
     `}
 `;
 
@@ -333,7 +349,28 @@ export const Votes = styled.span<StyledTileProps>`
           font-size: 14px;
           line-height: 1.2;
           color: ${({ theme }) => theme.colors.primary};
+
+          @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+            font-size: 18px;
+            color: ${({ theme }) => theme.colors.secondary};
+          }
+
+          @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+            font-size: 16px;
+          }
+
+          @media (max-width: ${({ theme }) => theme.breakpoints.smallest}) {
+            font-size: 13px;
+          }
         `}
+
+  ${({ hideOnMobile }) =>
+    !!hideOnMobile &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        display: none;
+      }
+    `}
 `;
 
 export const Overview = styled.span`
