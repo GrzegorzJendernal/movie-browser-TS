@@ -383,4 +383,16 @@ export const Overview = styled.span`
   font-weight: 400;
   line-height: 1.6;
   grid-area: overview;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 18px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    font-size: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallest}) {
+    font-size: 14px;
+  }
 `;
