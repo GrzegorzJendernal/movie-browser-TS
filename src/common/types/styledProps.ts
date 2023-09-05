@@ -10,3 +10,7 @@ export interface StyledTileProps {
   movie?: boolean;
   hideOnMobile?: boolean;
 }
+
+export interface PropertiesProps {
+  mobile?: string;
+}
