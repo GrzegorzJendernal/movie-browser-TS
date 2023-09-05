@@ -45,7 +45,7 @@ export const StyledTile = styled.section<DetailsProps>`
             "picture rates"
             "picture overview";
           grid-template-columns: 312px 1.5fr;
-          grid-template-rows: auto auto auto;
+          grid-template-rows: auto 1fr;
           padding: 40px;
           grid-column-gap: 40px;
           grid-row-gap: 24px;
@@ -285,6 +285,11 @@ export const Rates = styled.div<StyledTileProps>`
     margin-top: unset;
     font-size: 15px;
     gap: 8px;
+    ${({ movie }) =>
+      !!movie &&
+      css`
+        margin-bottom: auto;
+      `}
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
