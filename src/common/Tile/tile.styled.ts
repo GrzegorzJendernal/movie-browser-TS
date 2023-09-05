@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import noPoster from "./noMoviePoster.svg";
 import { ReactComponent as Star } from "../assets/star.svg";
 import { Link } from "react-router-dom";
-import { PictureProps, DetailsProps, StyledTileProps } from "../types/styledProps";
+import { PictureProps, DetailsProps, StyledTileProps, PropertiesProps } from "../types/styledProps";
 
 export const StyledLink = styled(Link)`
   display: flex;
@@ -178,15 +178,30 @@ export const Additional = styled.span`
   }
 `;
 
-export const Properties = styled.div`
+export const Properties = styled.div<PropertiesProps>`
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.2;
   color: ${({ theme }) => theme.colors.primary};
+  ${({ mobile }) =>
+    mobile === "show" &&
+    css`
+      display: none;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        display: block;
+      }
+    `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    ${({ mobile }) =>
+      mobile === "hide" &&
+      css`
+        display: none;
+      `}
     font-size: 16px;
+    padding: 4px 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
