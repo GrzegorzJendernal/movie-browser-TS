@@ -230,6 +230,10 @@ export const Tags = styled.ul<StyledTileProps>`
   gap: ${({ movie }) => (movie ? 16 : 8)}px;
   margin: 0;
   flex-wrap: wrap;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    gap: 8px;
+  }
 `;
 
 export const Tag = styled.li`
