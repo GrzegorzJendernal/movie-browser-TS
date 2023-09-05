@@ -50,10 +50,17 @@ const Tile = ({
     return (
       <>
         {!!countries && (
-          <Properties>
-            <Property>Production: </Property>
-            {countries.map((country, index) => (index + 1 === countries.length ? country.name : `${country.name}, `))}
-          </Properties>
+          <>
+            <Properties mobile={"hide"}>
+              <Property>Production: </Property>
+              {countries.map((country, index) => (index + 1 === countries.length ? country.name : `${country.name}, `))}
+            </Properties>
+            <Properties mobile={"show"}>
+              {countries.map((country, index) =>
+                index + 1 === countries.length ? country.iso_3166_1 : `${country.iso_3166_1}, `,
+              )}
+            </Properties>
+          </>
         )}
         {!!releaseDate && (
           <Properties>
