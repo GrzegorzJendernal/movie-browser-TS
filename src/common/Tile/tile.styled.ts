@@ -184,11 +184,27 @@ export const Properties = styled.div`
   font-weight: 400;
   line-height: 1.2;
   color: ${({ theme }) => theme.colors.primary};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    font-size: 14px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallest}) {
+    font-size: 12px;
+  }
 `;
 
 export const Property = styled.span`
   color: ${({ theme }) => theme.colors.secondary};
   margin-right: 10px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    display: none;
+  }
 `;
 
 export const Tags = styled.ul<StyledTileProps>`
