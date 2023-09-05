@@ -2,6 +2,7 @@ import { createHashRouter, Navigate } from "react-router-dom";
 import App from "./App/App";
 import MovieList from "../features/movies/MovieList/MovieList";
 import ErrorPage from "../common/ErrorPage/ErrorPage";
+import MovieDetails from "../features/movies/MovieDetails/MovieDetails";
 
 export const router = createHashRouter([
   {
@@ -19,6 +20,10 @@ export const router = createHashRouter([
           {
             path: "/movies",
             element: <MovieList />,
+          },
+          {
+            path: "/movies/:movieId",
+            element: <MovieDetails />,
           },
           {
             path: "/people",

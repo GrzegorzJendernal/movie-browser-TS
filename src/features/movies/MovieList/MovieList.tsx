@@ -32,6 +32,7 @@ const MovieList = () => {
         <Container>
           {data.results.map((movie) => (
             <Tile
+              path={`/movies/${movie.id}`}
               title={movie.title}
               date={movie.release_date.slice(0, 4)}
               genres={
