@@ -50,6 +50,36 @@ export const StyledTile = styled.section<DetailsProps>`
           grid-column-gap: 40px;
           grid-row-gap: 24px;
           margin-top: 8px;
+
+          @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+            padding: 30px;
+            grid-column-gap: 30px;
+            grid-row-gap: 20px;
+          }
+
+          @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+            grid-template-columns: 1fr 1.5fr;
+            padding: 24px;
+            grid-column-gap: 24px;
+            grid-row-gap: 14px;
+          }
+
+          @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+            grid-template-areas:
+              "picture info"
+              "picture rates"
+              "overview overview";
+            grid-template-columns: 1.2fr 1fr;
+            padding: 20px;
+            grid-column-gap: 20px;
+            grid-row-gap: 10px;
+          }
+
+          @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+            padding: 16px;
+            grid-column-gap: 16px;
+            grid-row-gap: 8px;
+          }
         `}
 `;
 
