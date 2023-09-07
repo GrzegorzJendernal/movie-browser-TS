@@ -37,3 +37,9 @@ export const getMoviesByQuery = (page: number, query: string): Promise<MovieList
 export const getGenres = (): Promise<GenresData> => getData("/genre/movie/list");
 
 export const getMovieDetails = (id: string): Promise<Movie> => getData(`movie/${id}`, { language: languageOptions });
+
+export const getPeopleList = (page: number) =>
+  getData("/person/popular", { language: languageOptions, page: `${page}` });
+
+export const getPersonByQuery = (page: number, query: string) =>
+  getData("/search/person", { language: languageOptions, page: `${page}`, query: `${query}` });
