@@ -1,0 +1,6 @@
+const PeopleList = () => {
+
+  return (
+    
+  );
+};
