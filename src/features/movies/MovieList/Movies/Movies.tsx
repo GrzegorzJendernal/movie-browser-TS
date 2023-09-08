@@ -7,6 +7,7 @@ import Pagination from "../../../../common/Pagination/Pagination";
 import { useQueryParam } from "../../../../common/utils/useQueryParam";
 import { getGenreName } from "../../../../common/utils/getGenresName";
 import ErrorPage from "../../../../common/ErrorPage/ErrorPage";
+import NoResults from "../../../../common/NoResults/NoResults";
 
 const Movies = () => {
   const pageParam = useQueryParam("page");
@@ -19,7 +20,9 @@ const Movies = () => {
 
   if (!data) return <ErrorPage />;
 
-  return (
+  return data.total_results === 0 ? (
+    <NoResults query={query} />
+  ) : (
     <PageWrapper>
       <PageHeading>
         {query === "" ? `Popular movies` : `Search results for “${query}” (${data.total_results})`}
