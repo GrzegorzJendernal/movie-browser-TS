@@ -16,7 +16,9 @@ const MovieDetails = () => {
   if (data)
     return (
       <>
-        <Backdrop path={data.backdrop_path} title={data.title} note={data.vote_average} votes={data.vote_count} />
+        {!!data.backdrop_path && (
+          <Backdrop path={data.backdrop_path} title={data.title} note={data.vote_average} votes={data.vote_count} />
+        )}
         <PageWrapper>
           <Tile
             title={data.title}
