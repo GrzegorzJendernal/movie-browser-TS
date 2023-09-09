@@ -14,24 +14,24 @@ const People = () => {
     query === "" ? getPeopleList(page) : getPersonByQuery(page, query),
   );
 
-  if (!data) return <ErrorPage/>;
+  if (!data) return <ErrorPage />;
 
   return (
     <PageWrapper>
       <PageHeading>
         {query === "" ? `Popular people` : `Search results for “${query}” (${data.total_results})`}
       </PageHeading>
-      {/* {data.results.map((person) => (
+      {data.results.map((person) => (
         <Tile
           path={`/people/${person.id}`}
           title={`a`}
           date={`pa`}
           note={3}
-          votes={a}
+          votes={5}
           imageUrl={person.poster_path ? `https://image.tmdb.org/t/p/w500/${person.poster_path}` : undefined}
           key={person.id}
         />
-      ))} */}
+      ))}
       <Pagination totalPages={data.total_pages} />
     </PageWrapper>
   );
