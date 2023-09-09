@@ -17,11 +17,23 @@ export interface Movie {
   genres: [{ id: number; name: string }];
 }
 
-export interface MovieListData {
+export interface Person {
+  id: number;
+  known_for: Movie[];
+  known_for_department: string;
+  name: string;
+  popularity: number;
+  profile_path: string;
+}
+
+interface ListData {
   page: number;
-  results: Movie[];
   total_pages: number;
   total_results: number;
+}
+
+export interface MovieListData extends ListData {
+  results: Movie[];
 }
 
 export interface Params {
