@@ -36,6 +36,10 @@ export interface MovieListData extends ListData {
   results: Movie[];
 }
 
+export interface PeopleListData extends ListData {
+  results: Person[];
+}
+
 export interface Params {
   language: string;
   page?: string;
