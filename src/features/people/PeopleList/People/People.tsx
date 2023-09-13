@@ -5,6 +5,7 @@ import { useQueryParam } from "../../../../common/utils/useQueryParam";
 import Pagination from "../../../../common/Pagination/Pagination";
 import Tile from "../../../../common/Tile/Tile";
 import ErrorPage from "../../../../common/ErrorPage/ErrorPage";
+import { Container } from "./people.styled";
 
 const People = () => {
   const pageParam = useQueryParam("page");
@@ -21,17 +22,16 @@ const People = () => {
       <PageHeading>
         {query === "" ? `Popular people` : `Search results for “${query}” (${data.total_results})`}
       </PageHeading>
-      {data.results.map((person) => (
-        <Tile
-          path={`/people/${person.id}`}
-          title={`a`}
-          date={`pa`}
-          note={3}
-          votes={5}
-          imageUrl={person.poster_path ? `https://image.tmdb.org/t/p/w500/${person.poster_path}` : undefined}
-          key={person.id}
-        />
-      ))}
+      <Container>
+        {data.results.map((person) => (
+          <Tile
+            path={`/people/${person.id}`}
+            title={person.name}
+            imageUrl={person.profile_path ? `https://image.tmdb.org/t/p/w500/${person.profile_path}` : undefined}
+            key={person.id}
+          />
+        ))}
+      </Container>
       <Pagination totalPages={data.total_pages} />
     </PageWrapper>
   );
