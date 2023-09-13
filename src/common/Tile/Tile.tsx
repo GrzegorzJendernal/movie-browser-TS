@@ -21,10 +21,10 @@ import {
 interface TileProps {
   path?: string;
   title: string;
-  date: string;
+  date?: string;
   genres?: string[];
-  note: number;
-  votes: number;
+  note?: number;
+  votes?: number;
   imageUrl?: string;
   overview?: string;
   movie?: boolean;
@@ -77,13 +77,13 @@ const Tile = ({
       <Picture imageUrl={imageUrl} />
       <Info details={!path ? true : false}>
         <Title details={!path ? true : false}>{title}</Title>
-        {!!movie && <YearOfPublication>{date.slice(0, 4)}</YearOfPublication>}
+        {!!movie && !!date && <YearOfPublication>{date.slice(0, 4)}</YearOfPublication>}
         <Additional>{additionalContent()}</Additional>
         <Tags movie={movie}>{!!genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}</Tags>
       </Info>
       <Rates movie={movie}>
         <StyledStar />
-        <Note movie={movie}>{note.toFixed(1)}</Note>
+        {!!note && <Note movie={movie}>{note.toFixed(1)}</Note>}
         {!!movie && (
           <Votes hideOnMobile movie={movie}>
             / 10
