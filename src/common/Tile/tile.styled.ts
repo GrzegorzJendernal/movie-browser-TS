@@ -84,7 +84,7 @@ export const StyledTile = styled.section<DetailsProps>`
 `;
 
 export const Picture = styled.div<PictureProps>`
-  padding-top: calc(100% * 632 / 421);
+  aspect-ratio: 421 / 632;
   margin-bottom: 16px;
   border-radius: 5px;
   background-image: ${({ imageUrl }) => (imageUrl ? `url(${imageUrl})` : `url(${noPoster})`)};
