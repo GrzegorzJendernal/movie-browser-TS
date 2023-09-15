@@ -5,6 +5,7 @@ export interface PictureProps {
 
 export interface DetailsProps {
   details?: boolean;
+  twoColumnsOnMobile?: boolean;
 }
 
 export interface StyledTileProps {
