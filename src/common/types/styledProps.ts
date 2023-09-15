@@ -1,5 +1,6 @@
 export interface PictureProps {
   imageUrl?: string;
+  person?: boolean;
 }
 
 export interface DetailsProps {
