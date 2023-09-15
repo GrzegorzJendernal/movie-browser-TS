@@ -29,6 +29,7 @@ const People = () => {
             title={person.name}
             imageUrl={person.profile_path ? `https://image.tmdb.org/t/p/w500/${person.profile_path}` : undefined}
             key={person.id}
+            people
           />
         ))}
       </Container>
