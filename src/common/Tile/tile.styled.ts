@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import noPoster from "./noMoviePoster.svg";
+import noPicture from "./noPersonPicture.svg";
 import { ReactComponent as Star } from "../assets/star.svg";
 import { Link } from "react-router-dom";
 import { PictureProps, DetailsProps, StyledTileProps, PropertiesProps } from "../types/styledProps";
@@ -96,10 +97,11 @@ export const StyledTile = styled.section<DetailsProps>`
 `;
 
 export const Picture = styled.div<PictureProps>`
-  aspect-ratio: 421 / 632;
+  aspect-ratio: ${({ person }) => (!person ? 421 / 632 : 177 / 264)};
   margin-bottom: 16px;
   border-radius: 5px;
-  background-image: ${({ imageUrl }) => (imageUrl ? `url(${imageUrl})` : `url(${noPoster})`)};
+  background-image: ${({ imageUrl, person }) =>
+    imageUrl ? `url(${imageUrl})` : `url(${!person ? noPoster : noPicture})`};
   background-repeat: no-repeat;
   background-size: 100%;
   grid-area: picture;
