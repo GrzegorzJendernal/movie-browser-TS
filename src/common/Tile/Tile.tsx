@@ -30,6 +30,7 @@ interface TileProps {
   movie?: boolean;
   countries?: [{ iso_3166_1: string; name: string }];
   releaseDate?: string;
+  people?: boolean;
 }
 
 const Tile = ({
@@ -44,6 +45,7 @@ const Tile = ({
   movie,
   countries,
   releaseDate,
+  people,
 }: TileProps) => {
   const additionalContent = () => {
     if (path) return date;
@@ -81,16 +83,18 @@ const Tile = ({
         <Additional>{additionalContent()}</Additional>
         <Tags movie={movie}>{!!genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}</Tags>
       </Info>
-      <Rates movie={movie}>
-        <StyledStar />
-        {!!note && <Note movie={movie}>{note.toFixed(1)}</Note>}
-        {!!movie && (
-          <Votes hideOnMobile movie={movie}>
-            / 10
-          </Votes>
-        )}
-        <Votes movie={movie}>{votes} votes</Votes>
-      </Rates>
+      {!people && (
+        <Rates movie={movie}>
+          <StyledStar />
+          {!!note && <Note movie={movie}>{note.toFixed(1)}</Note>}
+          {!!movie && (
+            <Votes hideOnMobile movie={movie}>
+              / 10
+            </Votes>
+          )}
+          <Votes movie={movie}>{votes} votes</Votes>
+        </Rates>
+      )}
       {!!overview && <Overview>{overview}</Overview>}
     </StyledTile>
   );
