@@ -21,22 +21,34 @@ export const StyledTile = styled.section<DetailsProps>`
   box-shadow: ${({ theme }) => theme.boxShadow};
   border-radius: 5px;
 
-  ${({ details: description }) =>
+  ${({ details: description, twoColumnsOnMobile }) =>
     !description
       ? css`
           display: flex;
           flex-direction: column;
           padding: 16px;
 
-          @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-            display: grid;
-            grid-template-areas:
-              "picture info"
-              "picture rates";
-            grid-template-columns: 1fr 1.5fr;
-            grid-template-rows: auto 1fr;
-            grid-gap: 16px;
-          }
+          ${twoColumnsOnMobile
+            ? css`
+                @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+                  display: grid;
+                  grid-template-areas:
+                    "picture info"
+                    "picture rates";
+                  grid-template-columns: 1fr 1.5fr;
+                  grid-template-rows: auto 1fr;
+                  grid-gap: 16px;
+                }
+              `
+            : css`
+                @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+                  padding: 12px;
+                }
+
+                @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+                  padding: 8px;
+                }
+              `}
         `
       : css`
           display: grid;
