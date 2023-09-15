@@ -76,7 +76,7 @@ const Tile = ({
 
   const tileContent = (
     <StyledTile details={!path} twoColumnsOnMobile={!people}>
-      <Picture imageUrl={imageUrl} />
+      <Picture imageUrl={imageUrl} person={people} />
       <Info details={!path}>
         <Title details={!path}>{title}</Title>
         {!!movie && !!date && <YearOfPublication>{date.slice(0, 4)}</YearOfPublication>}
