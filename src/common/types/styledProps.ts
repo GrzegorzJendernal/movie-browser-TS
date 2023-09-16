@@ -1,9 +1,12 @@
 export interface PictureProps {
   imageUrl?: string;
+  person?: boolean;
 }
 
 export interface DetailsProps {
   details?: boolean;
+  twoColumnsOnMobile?: boolean;
+  people?: boolean;
 }
 
 export interface StyledTileProps {

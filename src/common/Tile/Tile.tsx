@@ -21,15 +21,16 @@ import {
 interface TileProps {
   path?: string;
   title: string;
-  date: string;
+  date?: string;
   genres?: string[];
-  note: number;
-  votes: number;
+  note?: number;
+  votes?: number;
   imageUrl?: string;
   overview?: string;
   movie?: boolean;
   countries?: [{ iso_3166_1: string; name: string }];
   releaseDate?: string;
+  people?: boolean;
 }
 
 const Tile = ({
@@ -44,6 +45,7 @@ const Tile = ({
   movie,
   countries,
   releaseDate,
+  people,
 }: TileProps) => {
   const additionalContent = () => {
     if (path) return date;
@@ -73,24 +75,34 @@ const Tile = ({
   };
 
   const tileContent = (
-    <StyledTile details={!path ? true : false}>
-      <Picture imageUrl={imageUrl} />
-      <Info details={!path ? true : false}>
-        <Title details={!path ? true : false}>{title}</Title>
-        {!!movie && <YearOfPublication>{date.slice(0, 4)}</YearOfPublication>}
-        <Additional>{additionalContent()}</Additional>
-        <Tags movie={movie}>{!!genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}</Tags>
-      </Info>
-      <Rates movie={movie}>
-        <StyledStar />
-        <Note movie={movie}>{note.toFixed(1)}</Note>
-        {!!movie && (
-          <Votes hideOnMobile movie={movie}>
-            / 10
-          </Votes>
+    <StyledTile details={!path} twoColumnsOnMobile={!people}>
+      <Picture imageUrl={imageUrl} person={people} />
+      <Info details={!path}>
+        <Title details={!path} people={people}>
+          {title}
+        </Title>
+        {!!movie && !!date && <YearOfPublication>{date.slice(0, 4)}</YearOfPublication>}
+        {!people && <Additional>{additionalContent()}</Additional>}
+        {!!genres && (
+          <Tags movie={movie}>
+            {genres.map((genre) => (
+              <Tag key={genre}>{genre}</Tag>
+            ))}
+          </Tags>
         )}
-        <Votes movie={movie}>{votes} votes</Votes>
-      </Rates>
+      </Info>
+      {!people && (
+        <Rates movie={movie}>
+          <StyledStar />
+          {!!note && <Note movie={movie}>{note.toFixed(1)}</Note>}
+          {!!movie && (
+            <Votes hideOnMobile movie={movie}>
+              / 10
+            </Votes>
+          )}
+          <Votes movie={movie}>{votes} votes</Votes>
+        </Rates>
+      )}
       {!!overview && <Overview>{overview}</Overview>}
     </StyledTile>
   );

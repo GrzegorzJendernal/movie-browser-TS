@@ -36,7 +36,9 @@ const Pagination = ({ totalPages }: { totalPages: number }) => {
           <Text>previous</Text>
         </Button>
       </ButtonsBox>
-      <span>Page 1 of {totalPagesNumber}</span>
+      <span>
+        Page {page} of {totalPagesNumber}
+      </span>
       <ButtonsBox>
         <Button disabled={page === totalPagesNumber} onClick={setNextPage}>
           <Arrow />

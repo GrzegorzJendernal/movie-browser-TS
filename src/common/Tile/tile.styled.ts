@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import noPoster from "./noMoviePoster.svg";
+import noPicture from "./noPersonPicture.svg";
 import { ReactComponent as Star } from "../assets/star.svg";
 import { Link } from "react-router-dom";
 import { PictureProps, DetailsProps, StyledTileProps, PropertiesProps } from "../types/styledProps";
@@ -21,22 +22,34 @@ export const StyledTile = styled.section<DetailsProps>`
   box-shadow: ${({ theme }) => theme.boxShadow};
   border-radius: 5px;
 
-  ${({ details: description }) =>
+  ${({ details: description, twoColumnsOnMobile }) =>
     !description
       ? css`
           display: flex;
           flex-direction: column;
           padding: 16px;
 
-          @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-            display: grid;
-            grid-template-areas:
-              "picture info"
-              "picture rates";
-            grid-template-columns: 1fr 1.5fr;
-            grid-template-rows: auto 1fr;
-            grid-gap: 16px;
-          }
+          ${twoColumnsOnMobile
+            ? css`
+                @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+                  display: grid;
+                  grid-template-areas:
+                    "picture info"
+                    "picture rates";
+                  grid-template-columns: 1fr 1.5fr;
+                  grid-template-rows: auto 1fr;
+                  grid-gap: 16px;
+                }
+              `
+            : css`
+                @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+                  padding: 12px;
+                }
+
+                @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+                  padding: 8px;
+                }
+              `}
         `
       : css`
           display: grid;
@@ -84,10 +97,11 @@ export const StyledTile = styled.section<DetailsProps>`
 `;
 
 export const Picture = styled.div<PictureProps>`
-  padding-top: calc(100% * 632 / 421);
+  aspect-ratio: ${({ person }) => (!person ? 421 / 632 : 177 / 264)};
   margin-bottom: 16px;
   border-radius: 5px;
-  background-image: ${({ imageUrl }) => (imageUrl ? `url(${imageUrl})` : `url(${noPoster})`)};
+  background-image: ${({ imageUrl, person }) =>
+    imageUrl ? `url(${imageUrl})` : `url(${!person ? noPoster : noPicture})`};
   background-repeat: no-repeat;
   background-size: 100%;
   grid-area: picture;
@@ -114,6 +128,11 @@ export const Title = styled.h2<DetailsProps>`
   color: ${({ theme }) => theme.colors.primary};
   margin: 0;
   word-wrap: normal;
+  ${({ people }) =>
+    !!people &&
+    css`
+      text-align: center;
+    `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 26px;
@@ -128,7 +147,7 @@ export const Title = styled.h2<DetailsProps>`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallest}) {
-    font-size: 16px;
+    font-size: ${({ people }) => (!people ? `16` : `14`)}px;
   }
 `;
 

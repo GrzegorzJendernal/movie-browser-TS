@@ -3,6 +3,7 @@ import App from "./App/App";
 import MovieList from "../features/movies/MovieList/MovieList";
 import ErrorPage from "../common/ErrorPage/ErrorPage";
 import MovieDetails from "../features/movies/MovieDetails/MovieDetails";
+import PeopleList from "../features/people/PeopleList/PeopleList";
 
 export const router = createHashRouter([
   {
@@ -27,7 +28,7 @@ export const router = createHashRouter([
           },
           {
             path: "/people",
-            element: <ErrorPage />,
+            element: <PeopleList />,
           },
         ],
       },
