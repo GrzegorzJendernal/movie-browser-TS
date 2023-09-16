@@ -128,6 +128,11 @@ export const Title = styled.h2<DetailsProps>`
   color: ${({ theme }) => theme.colors.primary};
   margin: 0;
   word-wrap: normal;
+  ${({ people }) =>
+    !!people &&
+    css`
+      text-align: center;
+    `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 26px;
@@ -142,7 +147,7 @@ export const Title = styled.h2<DetailsProps>`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallest}) {
-    font-size: 16px;
+    font-size: ${({ people }) => (!people ? `16` : `14`)}px;
   }
 `;
 
