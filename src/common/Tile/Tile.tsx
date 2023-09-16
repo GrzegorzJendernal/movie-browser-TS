@@ -78,10 +78,18 @@ const Tile = ({
     <StyledTile details={!path} twoColumnsOnMobile={!people}>
       <Picture imageUrl={imageUrl} person={people} />
       <Info details={!path}>
-        <Title details={!path}>{title}</Title>
+        <Title details={!path} people={people}>
+          {title}
+        </Title>
         {!!movie && !!date && <YearOfPublication>{date.slice(0, 4)}</YearOfPublication>}
-        <Additional>{additionalContent()}</Additional>
-        <Tags movie={movie}>{!!genres && genres.map((genre) => <Tag key={genre}>{genre}</Tag>)}</Tags>
+        {!people && <Additional>{additionalContent()}</Additional>}
+        {!!genres && (
+          <Tags movie={movie}>
+            {genres.map((genre) => (
+              <Tag key={genre}>{genre}</Tag>
+            ))}
+          </Tags>
+        )}
       </Info>
       {!people && (
         <Rates movie={movie}>
