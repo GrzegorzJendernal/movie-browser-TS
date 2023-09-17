@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getGenres, getMovieList, getMoviesByQuery } from "../../../../common/api/apiRequests";
-import { PageHeading, PageWrapper } from "../../../../common/page/page.styled";
-import { Container } from "./movies.styled";
+import { PageHeading, PageSection, PageWrapper } from "../../../../common/page/page.styled";
 import Tile from "../../../../common/Tile/Tile";
 import Pagination from "../../../../common/Pagination/Pagination";
 import { useQueryParam } from "../../../../common/utils/useQueryParam";
@@ -27,7 +26,7 @@ const Movies = () => {
       <PageHeading>
         {query === "" ? `Popular movies` : `Search results for “${query}” (${data.total_results})`}
       </PageHeading>
-      <Container>
+      <PageSection contents={"movies"}>
         {data.results.map((movie) => (
           <Tile
             path={`/movies/${movie.id}`}
@@ -40,7 +39,7 @@ const Movies = () => {
             key={movie.id}
           />
         ))}
-      </Container>
+      </PageSection>
       <Pagination totalPages={data.total_pages} />
     </PageWrapper>
   );
