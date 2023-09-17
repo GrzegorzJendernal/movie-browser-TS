@@ -17,3 +17,7 @@ export interface StyledTileProps {
 export interface PropertiesProps {
   mobile?: string;
 }
+
+export interface PageSectionProps {
+  contents: "movies" | "moviesCast" | "moviesCrew" | "people" | "cast" | "crew";
+}
