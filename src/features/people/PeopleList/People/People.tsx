@@ -1,11 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { getPeopleList, getPersonByQuery } from "../../../../common/api/apiRequests";
-import { PageHeading, PageWrapper } from "../../../../common/page/page.styled";
+import { PageHeading, PageSection, PageWrapper } from "../../../../common/page/page.styled";
 import { useQueryParam } from "../../../../common/utils/useQueryParam";
 import Pagination from "../../../../common/Pagination/Pagination";
 import Tile from "../../../../common/Tile/Tile";
 import ErrorPage from "../../../../common/ErrorPage/ErrorPage";
-import { Container } from "./people.styled";
 
 const People = () => {
   const pageParam = useQueryParam("page");
@@ -22,7 +21,7 @@ const People = () => {
       <PageHeading>
         {query === "" ? `Popular people` : `Search results for “${query}” (${data.total_results})`}
       </PageHeading>
-      <Container>
+      <PageSection contents="people">
         {data.results.map((person) => (
           <Tile
             path={`/people/${person.id}`}
@@ -32,7 +31,7 @@ const People = () => {
             people
           />
         ))}
-      </Container>
+      </PageSection>
       <Pagination totalPages={data.total_pages} />
     </PageWrapper>
   );
