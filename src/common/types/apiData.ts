@@ -45,3 +45,21 @@ export interface Params {
   page?: string;
   query?: string;
 }
+
+interface Artist {
+  name: string;
+  profile_path: string;
+  credit_id: string;
+}
+interface Cast extends Artist {
+  character: string;
+}
+
+interface Crew extends Artist {
+  job: string;
+}
+export interface Credits {
+  id: number;
+  cast?: Cast[];
+  crew?: Crew[];
+}
