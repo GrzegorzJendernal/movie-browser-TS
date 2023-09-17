@@ -113,6 +113,11 @@ export const Info = styled.article<DetailsProps>`
   grid-template-columns: 1fr;
   margin-bottom: ${({ details: description }) => (!description ? 8 : 0)}px;
   grid-area: info;
+  ${({ people }) =>
+    !!people &&
+    css`
+      margin: 0;
+    `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     display: flex;

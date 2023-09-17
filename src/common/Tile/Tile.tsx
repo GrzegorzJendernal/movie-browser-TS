@@ -77,7 +77,7 @@ const Tile = ({
   const tileContent = (
     <StyledTile details={!path} twoColumnsOnMobile={!people}>
       <Picture imageUrl={imageUrl} person={people} />
-      <Info details={!path}>
+      <Info details={!path} people={people}>
         <Title details={!path} people={people}>
           {title}
         </Title>
