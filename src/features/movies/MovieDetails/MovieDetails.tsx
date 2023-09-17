@@ -1,15 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import { useIdFromUrl } from "../../../common/utils/useIdFromUrl";
-import { getMovieDetails } from "../../../common/api/apiRequests";
+import { getCredits, getMovieDetails } from "../../../common/api/apiRequests";
 import ErrorPage from "../../../common/ErrorPage/ErrorPage";
 import Loading from "../../../common/Loading/Loading";
-import { PageWrapper } from "../../../common/page/page.styled";
+import { PageSection, PageWrapper } from "../../../common/page/page.styled";
 import Backdrop from "./Backdrop/Backdrop";
 import Tile from "../../../common/Tile/Tile";
 
 const MovieDetails = () => {
   const id = useIdFromUrl();
   const { data, isLoading } = useQuery(["movie", id], () => getMovieDetails(id));
+  const credits = useQuery(["credits", id], () => getCredits(id));
+  console.log(credits.data);
 
   if (isLoading) return <Loading />;
 
@@ -32,6 +34,7 @@ const MovieDetails = () => {
             releaseDate={data.release_date}
             genres={data.genres.map((genre) => genre.name)}
           />
+          {!!credits.data && !!credits.data.cast && <PageSection contents="people" job="cast"></PageSection>}
         </PageWrapper>
       </>
     );
