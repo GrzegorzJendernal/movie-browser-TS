@@ -19,5 +19,5 @@ export interface PropertiesProps {
 }
 
 export interface PageSectionProps {
-  contents: "movies" | "moviesCast" | "moviesCrew" | "people" | "cast" | "crew";
+  contents: "movies" | "people";
 }
