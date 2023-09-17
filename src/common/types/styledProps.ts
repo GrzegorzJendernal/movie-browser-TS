@@ -20,4 +20,5 @@ export interface PropertiesProps {
 
 export interface PageSectionProps {
   contents: "movies" | "people";
+  job?: "cast" | "crew";
 }
