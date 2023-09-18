@@ -15,7 +15,7 @@ export interface StyledTileProps {
 }
 
 export interface PropertiesProps {
-  mobile?: string;
+  mobile?: "hide" | "show";
 }
 
 export interface PageSectionProps {
