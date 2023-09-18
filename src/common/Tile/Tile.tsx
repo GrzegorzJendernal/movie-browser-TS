@@ -28,9 +28,11 @@ interface TileProps {
   imageUrl?: string;
   overview?: string;
   movie?: boolean;
+  movies?: boolean;
   countries?: [{ iso_3166_1: string; name: string }];
   releaseDate?: string;
   people?: boolean;
+  job?: string;
 }
 
 const Tile = ({
@@ -43,12 +45,15 @@ const Tile = ({
   path,
   overview,
   movie,
+  movies,
   countries,
   releaseDate,
   people,
+  job,
 }: TileProps) => {
   const additionalContent = () => {
-    if (path) return date;
+    if (movies) return date;
+    if (job) return job;
     return (
       <>
         {!!countries && (
@@ -82,7 +87,7 @@ const Tile = ({
           {title}
         </Title>
         {!!movie && !!date && <YearOfPublication>{date.slice(0, 4)}</YearOfPublication>}
-        {!people && <Additional>{additionalContent()}</Additional>}
+        <Additional>{additionalContent()}</Additional>
         {!!genres && (
           <Tags movie={movie}>
             {genres.map((genre) => (
