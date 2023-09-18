@@ -37,6 +37,7 @@ const Movies = () => {
             votes={movie.vote_count}
             imageUrl={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : undefined}
             key={movie.id}
+            movies
           />
         ))}
       </PageSection>
