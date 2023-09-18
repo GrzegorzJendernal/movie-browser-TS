@@ -47,6 +47,7 @@ export interface Params {
 }
 
 interface Artist {
+  id: number;
   name: string;
   profile_path: string;
   credit_id: string;
