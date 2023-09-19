@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { PageSectionProps } from "../types/styledProps";
+import { DetailsProps, PageSectionProps } from "../types/styledProps";
 
 export const PageWrapper = styled.div`
   max-width: 1368px;
@@ -19,12 +19,18 @@ export const PageWrapper = styled.div`
   }
 `;
 
-export const PageHeading = styled.h1`
+export const PageHeading = styled.h1<DetailsProps>`
   margin: 0;
   font-size: 36px;
   font-weight: 600;
   line-height: 1.2;
   color: ${({ theme }) => theme.colors.primary};
+  ${({ details }) =>
+    !!details &&
+    css`
+      margin-top: 64px;
+      margin-bottom: 32px;
+    `};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     font-size: 30px;
