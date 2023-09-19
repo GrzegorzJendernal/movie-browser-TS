@@ -126,7 +126,7 @@ export const Info = styled.article<DetailsProps>`
   }
 `;
 
-export const Title = styled.h2<DetailsProps>`
+export const Title = styled.p<DetailsProps>`
   font-weight: 500;
   font-size: ${({ details: description }) => (!description ? 22 : 36)}px;
   line-height: 1.3;
@@ -182,12 +182,17 @@ export const YearOfPublication = styled.span`
   }
 `;
 
-export const Additional = styled.span`
+export const Additional = styled.span<DetailsProps>`
   font-weight: 400;
-  font-size: 16px;
-  line-height: 150%;
+  font-size: ${({ people }) => (!people ? 16 : 18)}px;
+  line-height: 1.5;
   color: ${({ theme }) => theme.colors.secondary};
   margin: 0;
+  ${({ people }) =>
+    !!people &&
+    css`
+      text-align: center;
+    `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 15px;
