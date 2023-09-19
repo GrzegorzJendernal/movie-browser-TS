@@ -54,6 +54,27 @@ const MovieDetails = () => {
               </PageSection>
             </>
           )}
+          {!!credits.data && !!credits.data.crew && (
+            <>
+              <PageHeading details as={"h2"}>
+                Crew
+              </PageHeading>
+              <PageSection contents="people">
+                {credits.data.crew.map((castMember) => (
+                  <Tile
+                    path={`/people/${castMember.id}`}
+                    title={castMember.name}
+                    imageUrl={
+                      castMember.profile_path ? `https://image.tmdb.org/t/p/w500/${castMember.profile_path}` : undefined
+                    }
+                    key={castMember.credit_id}
+                    people
+                    job={castMember.job}
+                  />
+                ))}
+              </PageSection>
+            </>
+          )}
         </PageWrapper>
       </>
     );
