@@ -1,11 +1,16 @@
 import styled, { css } from "styled-components";
 import { DetailsProps, PageSectionProps } from "../types/styledProps";
 
-export const PageWrapper = styled.div`
+export const PageWrapper = styled.div<DetailsProps>`
   max-width: 1368px;
   margin: 56px auto 0;
   padding: 0 24px;
   white-space: pre-wrap;
+  ${({ details }) =>
+    !!details &&
+    css`
+      margin-bottom: 24px;
+    `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     margin: 48px;

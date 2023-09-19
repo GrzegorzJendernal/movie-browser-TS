@@ -20,7 +20,7 @@ const MovieDetails = () => {
         {!!data.backdrop_path && (
           <Backdrop path={data.backdrop_path} title={data.title} note={data.vote_average} votes={data.vote_count} />
         )}
-        <PageWrapper>
+        <PageWrapper details>
           <Tile
             title={data.title}
             date={data.release_date}
