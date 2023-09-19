@@ -97,7 +97,7 @@ export const StyledTile = styled.section<DetailsProps>`
 `;
 
 export const Picture = styled.div<PictureProps>`
-  aspect-ratio: ${({ person }) => (!person ? 421 / 632 : 177 / 264)};
+  aspect-ratio: ${({ person }) => (!person ? 421 / 632 : 177 / 231)};
   margin-bottom: 16px;
   border-radius: 5px;
   background-image: ${({ imageUrl, person }) =>
