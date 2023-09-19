@@ -3,7 +3,7 @@ import { useIdFromUrl } from "../../../common/utils/useIdFromUrl";
 import { getCredits, getMovieDetails } from "../../../common/api/apiRequests";
 import ErrorPage from "../../../common/ErrorPage/ErrorPage";
 import Loading from "../../../common/Loading/Loading";
-import { PageSection, PageWrapper } from "../../../common/page/page.styled";
+import { PageHeading, PageSection, PageWrapper } from "../../../common/page/page.styled";
 import Backdrop from "./Backdrop/Backdrop";
 import Tile from "../../../common/Tile/Tile";
 
@@ -34,20 +34,25 @@ const MovieDetails = () => {
             genres={data.genres.map((genre) => genre.name)}
           />
           {!!credits.data && !!credits.data.cast && (
-            <PageSection contents="people" job="cast">
-              {credits.data.cast.map((castMember) => (
-                <Tile
-                  path={`/people/${castMember.id}`}
-                  title={castMember.name}
-                  imageUrl={
-                    castMember.profile_path ? `https://image.tmdb.org/t/p/w500/${castMember.profile_path}` : undefined
-                  }
-                  key={castMember.credit_id}
-                  people
-                  job={castMember.character}
-                />
-              ))}
-            </PageSection>
+            <>
+              <PageHeading details as={"h2"}>
+                Cast
+              </PageHeading>
+              <PageSection contents="people">
+                {credits.data.cast.map((castMember) => (
+                  <Tile
+                    path={`/people/${castMember.id}`}
+                    title={castMember.name}
+                    imageUrl={
+                      castMember.profile_path ? `https://image.tmdb.org/t/p/w500/${castMember.profile_path}` : undefined
+                    }
+                    key={castMember.credit_id}
+                    people
+                    job={castMember.character}
+                  />
+                ))}
+              </PageSection>
+            </>
           )}
         </PageWrapper>
       </>
