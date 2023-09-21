@@ -19,11 +19,11 @@ export interface Movie {
 
 export interface Person {
   id: number;
-  known_for: Movie[];
-  known_for_department: string;
+  known_for?: Movie[];
   name: string;
-  popularity: number;
   profile_path: string;
+  birthday?: string;
+  place_of_birth?: string;
 }
 
 interface ListData {
