@@ -242,13 +242,17 @@ export const Properties = styled.div<PropertiesProps>`
   }
 `;
 
-export const Property = styled.span`
+export const Property = styled.span<StyledTileProps>`
   color: ${({ theme }) => theme.colors.secondary};
   margin-right: 10px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    display: none;
-  }
+  ${({ person }) =>
+    !person &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        display: none;
+      }
+    `}
 `;
 
 export const Tags = styled.ul<StyledTileProps>`
