@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { PictureProps } from "../../../../common/types/styledProps";
-import { ReactComponent as Star } from "../../../../common/assets/star.svg";
+import { PictureProps } from "../../../../../common/types/styledProps";
+import { ReactComponent as Star } from "../../../../../common/assets/star.svg";
 
 export const Wrapper = styled.section`
   width: 100%;
