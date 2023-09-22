@@ -32,7 +32,10 @@ interface TileProps {
   countries?: [{ iso_3166_1: string; name: string }];
   releaseDate?: string;
   people?: boolean;
+  person?: boolean;
   job?: string;
+  birthdate?: string;
+  birthplace?: string;
 }
 
 const Tile = ({
@@ -49,7 +52,10 @@ const Tile = ({
   countries,
   releaseDate,
   people,
+  person,
   job,
+  birthdate,
+  birthplace,
 }: TileProps) => {
   const additionalContent = () => {
     if (movies) return date;
@@ -75,15 +81,27 @@ const Tile = ({
             {convertDateFormat(releaseDate)}
           </Properties>
         )}
+        {!!birthdate && (
+          <Properties>
+            <Property person>Date of birth: </Property>
+            {convertDateFormat(birthdate)}
+          </Properties>
+        )}
+        {!!birthplace && (
+          <Properties>
+            <Property person>Place of birth: </Property>
+            {birthplace}
+          </Properties>
+        )}
       </>
     );
   };
 
   const tileContent = (
     <StyledTile details={!path} twoColumnsOnMobile={!people}>
-      <Picture imageUrl={imageUrl} person={people} />
+      <Picture imageUrl={imageUrl} person={people || person} />
       <Info details={!path} people={people}>
-        <Title details={!path} people={people} as={!path ? "h1" : "p"}>
+        <Title details={!path} people={people || person} as={!path ? "h1" : "p"}>
           {title}
         </Title>
         {!!movie && !!date && <YearOfPublication>{date.slice(0, 4)}</YearOfPublication>}
@@ -96,7 +114,7 @@ const Tile = ({
           </Tags>
         )}
       </Info>
-      {!people && (
+      {!!note && (
         <Rates movie={movie}>
           <StyledStar />
           {!!note && <Note movie={movie}>{note.toFixed(1)}</Note>}
