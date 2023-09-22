@@ -12,6 +12,7 @@ export interface DetailsProps {
 export interface StyledTileProps {
   movie?: boolean;
   hideOnMobile?: boolean;
+  person?: boolean;
 }
 
 export interface PropertiesProps {
