@@ -71,7 +71,7 @@ export const StyledTile = styled.section<DetailsProps>`
           }
 
           @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-            grid-template-columns: 1fr 1.5fr;
+            grid-template-columns: 268px 1.5fr;
             padding: 24px;
             grid-column-gap: 24px;
             grid-row-gap: 14px;
