@@ -133,8 +133,9 @@ export const Title = styled.p<DetailsProps>`
   color: ${({ theme }) => theme.colors.primary};
   margin: 0;
   word-wrap: normal;
-  ${({ people }) =>
+  ${({ people, details }) =>
     !!people &&
+    !details &&
     css`
       text-align: center;
     `}
