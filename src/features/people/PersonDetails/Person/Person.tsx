@@ -24,10 +24,10 @@ const Person = () => {
         overview={data.biography}
         imageUrl={data.profile_path ? `https://image.tmdb.org/t/p/w500/${data.profile_path}` : undefined}
       />
-      {!!credits.data && !!credits.data.cast && (
+      {!!credits.data && !!credits.data.cast && credits.data.cast.length > 0 && (
         <>
           <PageHeading details as={"h2"}>
-            Movies cast ({credits.data.cast.length})
+            Movies - cast ({credits.data.cast.length})
           </PageHeading>
           <PageSection contents={"movies"}>
             {credits.data.cast.map((movie) => (
@@ -43,6 +43,31 @@ const Person = () => {
                 imageUrl={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : undefined}
                 key={movie.credit_id}
                 job={movie.character}
+                movies
+              />
+            ))}
+          </PageSection>
+        </>
+      )}
+      {!!credits.data && !!credits.data.crew && credits.data.crew.length > 0 && (
+        <>
+          <PageHeading details as={"h2"}>
+            Movies - crew ({credits.data.crew.length})
+          </PageHeading>
+          <PageSection contents={"movies"}>
+            {credits.data.crew.map((movie) => (
+              <Tile
+                path={`/movies/${movie.id}`}
+                title={movie.title}
+                date={movie.release_date.slice(0, 4)}
+                genres={
+                  genresQuery.data && movie.genre_ids.map((genreId) => `${getGenreName(genresQuery.data, genreId)}`)
+                }
+                note={movie.vote_average}
+                votes={movie.vote_count}
+                imageUrl={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : undefined}
+                key={movie.credit_id}
+                job={movie.job}
                 movies
               />
             ))}
