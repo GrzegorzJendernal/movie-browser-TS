@@ -13,7 +13,14 @@ const Person = () => {
 
   return (
     <PageWrapper details>
-      <Tile title={data.name} person birthdate={data.birthday} birthplace={data.place_of_birth} />
+      <Tile
+        title={data.name}
+        person
+        birthdate={data.birthday}
+        birthplace={data.place_of_birth}
+        overview={data.biography}
+        imageUrl={data.profile_path ? `https://image.tmdb.org/t/p/w500/${data.profile_path}` : undefined}
+      />
     </PageWrapper>
   );
 };
