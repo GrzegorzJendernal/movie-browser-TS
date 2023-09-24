@@ -58,6 +58,7 @@ const Tile = ({
   birthplace,
 }: TileProps) => {
   const additionalContent = () => {
+    if (movies && job) return `${job} ${date}`;
     if (movies) return date;
     if (job) return job;
     return (
