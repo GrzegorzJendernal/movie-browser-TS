@@ -4,6 +4,7 @@ import MovieList from "../features/movies/MovieList/MovieList";
 import ErrorPage from "../common/ErrorPage/ErrorPage";
 import MovieDetails from "../features/movies/MovieDetails/MovieDetails";
 import PeopleList from "../features/people/PeopleList/PeopleList";
+import PersonDetails from "../features/people/PersonDetails/PersonDetails";
 
 export const router = createHashRouter([
   {
@@ -29,6 +30,10 @@ export const router = createHashRouter([
           {
             path: "/people",
             element: <PeopleList />,
+          },
+          {
+            path: "/people/:personId",
+            element: <PersonDetails />,
           },
         ],
       },

@@ -15,15 +15,19 @@ export interface Movie {
   vote_count: number;
   production_countries?: [{ iso_3166_1: string; name: string }];
   genres: [{ id: number; name: string }];
+  character?: string;
+  job?: string;
+  credit_id?: string;
 }
 
 export interface Person {
   id: number;
-  known_for: Movie[];
-  known_for_department: string;
+  known_for?: Movie[];
   name: string;
-  popularity: number;
   profile_path: string;
+  birthday?: string;
+  place_of_birth?: string;
+  biography?: string;
 }
 
 interface ListData {
@@ -63,4 +67,10 @@ export interface Credits {
   id: number;
   cast?: Cast[];
   crew?: Crew[];
+}
+
+export interface MovieCredits {
+  id: number;
+  cast?: Movie[];
+  crew?: Movie[];
 }

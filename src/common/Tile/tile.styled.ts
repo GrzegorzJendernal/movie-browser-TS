@@ -71,7 +71,7 @@ export const StyledTile = styled.section<DetailsProps>`
           }
 
           @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-            grid-template-columns: 1fr 1.5fr;
+            grid-template-columns: 268px 1.5fr;
             padding: 24px;
             grid-column-gap: 24px;
             grid-row-gap: 14px;
@@ -133,8 +133,9 @@ export const Title = styled.p<DetailsProps>`
   color: ${({ theme }) => theme.colors.primary};
   margin: 0;
   word-wrap: normal;
-  ${({ people }) =>
+  ${({ people, details }) =>
     !!people &&
+    !details &&
     css`
       text-align: center;
     `}
@@ -242,13 +243,17 @@ export const Properties = styled.div<PropertiesProps>`
   }
 `;
 
-export const Property = styled.span`
+export const Property = styled.span<StyledTileProps>`
   color: ${({ theme }) => theme.colors.secondary};
   margin-right: 10px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    display: none;
-  }
+  ${({ person }) =>
+    !person &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        display: none;
+      }
+    `}
 `;
 
 export const Tags = styled.ul<StyledTileProps>`
