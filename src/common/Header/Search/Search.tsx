@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useReplaceQueryParameter } from "../../utils/queryParameters";
 import { useQueryParam } from "../../utils/useQueryParam";
 import { Input, Label, Loupe } from "./search.styled";
