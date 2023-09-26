@@ -58,7 +58,7 @@ export const StyledTile = styled.section<DetailsProps>`
             "picture rates"
             "picture overview";
           grid-template-columns: 312px 1.5fr;
-          grid-template-rows: auto 1fr;
+          grid-template-rows: auto auto 1fr;
           padding: 40px;
           grid-column-gap: 40px;
           grid-row-gap: 24px;
@@ -83,6 +83,7 @@ export const StyledTile = styled.section<DetailsProps>`
               "picture rates"
               "overview overview";
             grid-template-columns: 1.2fr 1fr;
+            grid-template-rows: auto 1fr;
             padding: 20px;
             grid-column-gap: 20px;
             grid-row-gap: 10px;
