@@ -2,7 +2,7 @@
 
 This site allows you to browse the most popular movies and actors from the public tmdb API. You can also get to know each of the above better on the details pages. There is a search engine in the upper right corner. It searches for movies or actors depending on which subpage you are currently on. Layout was designed in Figma by professionalist.
 
-This is a refactored version of a group project I participated in. [MoviesBrowser - demo](https://kaniewskisoftware.github.io/movie-browser/), [repositry] (https://github.com/KaniewskiSoftware/movie-browser).
+This is a refactored version of a group project I participated in. [MoviesBrowser - demo](https://kaniewskisoftware.github.io/movie-browser/), [repository](https://github.com/KaniewskiSoftware/movie-browser).
 
 This time I used different technologies to handle data downloaded from an external API and I moved the project to TypeScript.
 
